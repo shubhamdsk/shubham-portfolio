@@ -1,59 +1,146 @@
-# ShubhamPortfolio
+# 👋 Shubham Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.18.
+A modern developer portfolio built with Angular 21, TypeScript, SCSS, and Angular Signals.
 
-## Development server
+This portfolio showcases my professional experience, technical skills, projects, and frontend development journey while following modern Angular architecture and best practices.
 
-To start a local development server, run:
+---
+
+## 🚀 Tech Stack
+
+- Angular 21
+- TypeScript
+- Angular Signals
+- Standalone Components
+- Angular Router
+- SCSS
+- RxJS
+- Git & GitHub
+
+---
+
+## ✨ Features
+
+- Responsive Design
+- Modern UI/UX
+- Angular Signals for State Management
+- Standalone Components Architecture
+- Lazy Loaded Routes
+- Project Showcase
+- Skills & Experience Section
+- Contact Section
+- Optimized Performance
+- AI-Assisted Development Workflow Exploration
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── app/
+│   ├── core/
+│   ├── shared/
+│   ├── features/
+│   ├── layout/
+│   └── app.routes.ts
+├── assets/
+├── environments/
+└── styles/
+```
+
+---
+
+## 🛠️ Getting Started
+
+### Clone Repository
+
+```bash
+git clone https://github.com/shubhamdsk/shubham-portfolio.git
+cd shubham-portfolio
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start Development Server
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## 📦 Build Project
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Production build files will be generated inside:
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
+```text
+dist/
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🎯 Sections
 
-```bash
-ng e2e
-```
+- Home
+- About Me
+- Skills
+- Experience
+- Projects
+- Certifications
+- Contact
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 📌 Featured Projects
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### AI Assisted SW
+
+Enterprise Angular application and VS Code extension focused on automated build error analysis, code tracking, and AI-powered resolution workflows.
+
+### Model Based Design (MBD)
+
+Angular-based requirement management and AI-assisted model generation platform integrating Polarion, MATLAB, and Simulink workflows.
+
+---
+
+## 🌱 Learning & Exploration
+
+This project is also used to explore:
+
+- Angular 21 Features
+- Angular MCP Ecosystem
+- AI-Assisted Development
+- Modern Frontend Architecture
+- Performance Optimization Techniques
+
+---
+
+## 👨‍💻 Author
+
+**Shubham Deshmukh**
+
+Frontend Developer specializing in Angular, TypeScript, JavaScript, SCSS, RxJS, and modern web application development.
+
+- GitHub: https://github.com/shubhamdsk
+- LinkedIn: https://www.linkedin.com/in/shubham-deshmukh1720
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
