@@ -38,45 +38,6 @@
   </div>
 </section>
 
-<section class="about-focus section" aria-labelledby="focus-title">
-  <div class="app-container about-focus__container">
-    <div class="about-focus__header">
-      <p class="section__eyebrow">What I Work With</p>
-
-      <h2 id="focus-title" class="section__title">
-        Frontend skills shaped through practical Angular project work.
-      </h2>
-
-      <p class="section__description">
-        My development experience is centered around Angular applications, reusable UI,
-        API-driven screens, and maintainable frontend architecture.
-      </p>
-    </div>
-
-    <div class="about-focus__grid">
-      @for (area of focusAreas(); track area.title) {
-        <article class="about-focus__card">
-          <h3 class="about-focus__card-title">
-            {{ area.title }}
-          </h3>
-
-          <p class="about-focus__card-description">
-            {{ area.description }}
-          </p>
-
-          <ul class="about-focus__list" [attr.aria-label]="area.title">
-            @for (item of area.items; track item) {
-              <li class="about-focus__item">
-                {{ item }}
-              </li>
-            }
-          </ul>
-        </article>
-      }
-    </div>
-  </div>
-</section>
-
 <section class="project-exposure section" aria-labelledby="project-exposure-title">
   <div class="app-container project-exposure__container">
     <div class="project-exposure__header">
