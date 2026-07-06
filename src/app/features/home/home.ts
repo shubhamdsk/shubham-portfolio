@@ -2,6 +2,7 @@ import { RouterLink } from '@angular/router';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { About } from "../about/about";
+import { Skills } from "../skills/skills";
 import { TechBadge } from '@models/tech-badge.model';
 import { SocialLink } from '@models/social-link.model';
 import { PORTFOLIO_LINKS, SOCIAL_LINKS } from '@core/constants/portfolio.constant';
@@ -9,7 +10,7 @@ import { HeroAction, HeroCodeLine, HeroContent, HeroStat } from '@models/hero.mo
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, About],
+  imports: [RouterLink, About, Skills],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

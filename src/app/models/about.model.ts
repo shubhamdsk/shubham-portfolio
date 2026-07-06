@@ -11,12 +11,6 @@ export interface AboutHighlight {
   readonly description: string;
 }
 
-export interface AboutFocusArea {
-  readonly title: string;
-  readonly description: string;
-  readonly items: readonly string[];
-}
-
 export interface AboutProjectExposure {
   readonly title: string;
   readonly description: string;

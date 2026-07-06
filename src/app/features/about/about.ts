@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
 import {
   AboutContent,
-  AboutFocusArea,
   AboutHighlight,
   AboutProjectExposure,
   AboutWorkflowStep,
@@ -52,33 +51,6 @@ export class About {
     },
   ]);
 
-  protected readonly focusAreas = signal<readonly AboutFocusArea[]>([
-    {
-      title: 'Frontend Engineering',
-      description:
-        'I focus on building clean and scalable UI layers that are easy to understand, maintain, and extend.',
-      items: ['Angular', 'TypeScript', 'JavaScript', 'HTML', 'SCSS', 'Responsive UI'],
-    },
-    {
-      title: 'Angular Architecture',
-      description:
-        'I prefer structured Angular development with reusable components, services, models, routing, and clear separation of concerns.',
-      items: ['Standalone Components', 'Signals', 'RxJS', 'Reactive Forms', 'Lazy Loading', 'Services'],
-    },
-    {
-      title: 'UI Development',
-      description:
-        'I build user interfaces with attention to layout, spacing, responsiveness, accessibility, and consistent styling patterns.',
-      items: ['BEM SCSS', 'Design Systems', 'Accessibility', 'AG Grid', 'Angular Material', 'Reusable UI'],
-    },
-    {
-      title: 'Development Workflow',
-      description:
-        'I work with practical development tools for version control, debugging, API testing, and code quality improvement.',
-      items: ['Git', 'GitHub', 'VS Code', 'REST APIs', 'Postman', 'Chrome DevTools'],
-    },
-  ]);
-
   protected readonly projectExposure = signal<readonly AboutProjectExposure[]>([
     {
       title: 'AI Assisted SW',
@@ -109,7 +81,7 @@ export class About {
       step: '01',
       title: 'Understand Requirement',
       description:
-        'I first try to understand the feature goal, user flow, data requirement, and edge cases before writing code.',
+        'I first understand the feature goal, user flow, data requirement, and edge cases before writing code.',
     },
     {
       step: '02',
