@@ -1,1 +1,36 @@
-<p>header works!</p>
+<header class="header" [class.header--scrolled]="isScrolled()">
+    <div class="app-container header__container">
+        <a class="header__brand" routerLink="/" aria-label="Go to Shubham Deshmukh portfolio home">
+            <span class="header__brand-mark" aria-hidden="true">SD</span>
+
+            <span class="header__brand-content">
+                <span class="header__brand-name">Shubham Deshmukh</span>
+                <span class="header__brand-role">Frontend Developer</span>
+            </span>
+        </a>
+
+        <nav id="primary-navigation" class="header__nav" [class.header__nav--open]="isMenuOpen()"
+            aria-label="Primary navigation">
+            @for (item of navigationItems; track item.path) {
+            <a class="header__nav-link" routerLinkActive="header__nav-link--active"
+                [routerLinkActiveOptions]="{ exact: item.exact ?? false }" [routerLink]="item.path"
+                ariaCurrentWhenActive="page" (click)="onNavigationClick()">
+                {{ item.label }}
+            </a>
+            }
+        </nav>
+
+        <div class="header__actions">
+            <a class="btn btn--primary header__resume" [href]="resume.path" [download]="resume.fileName">
+                Resume
+            </a>
+
+            <button class="header__menu-button" type="button" aria-label="Toggle navigation menu"
+                aria-controls="primary-navigation" [attr.aria-expanded]="isMenuOpen()" (click)="onMenuToggle()">
+                <span class="header__menu-line" aria-hidden="true"></span>
+                <span class="header__menu-line" aria-hidden="true"></span>
+                <span class="header__menu-line" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+</header>
