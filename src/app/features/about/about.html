@@ -1,1 +1,142 @@
-<p>about works!</p>
+<section id="about" class="about section" aria-labelledby="about-title">
+  <div class="app-container about__container">
+    <div class="about__intro">
+      <p class="section__eyebrow">
+        {{ aboutContent().eyebrow }}
+      </p>
+
+      <h1 id="about-title" class="section__title">
+        {{ aboutContent().title }}
+      </h1>
+
+      <p class="section__description">
+        {{ aboutContent().description }}
+      </p>
+
+      <p class="about__text">
+        {{ aboutContent().additionalDescription }}
+      </p>
+    </div>
+
+    <div class="about__highlights" aria-label="Professional highlights">
+      @for (highlight of aboutHighlights(); track highlight.label) {
+        <article class="about__highlight">
+          <strong class="about__highlight-value">
+            {{ highlight.value }}
+          </strong>
+
+          <h2 class="about__highlight-title">
+            {{ highlight.label }}
+          </h2>
+
+          <p class="about__highlight-description">
+            {{ highlight.description }}
+          </p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="about-focus section" aria-labelledby="focus-title">
+  <div class="app-container about-focus__container">
+    <div class="about-focus__header">
+      <p class="section__eyebrow">What I Work With</p>
+
+      <h2 id="focus-title" class="section__title">
+        Frontend skills shaped through practical Angular project work.
+      </h2>
+
+      <p class="section__description">
+        My development experience is centered around Angular applications, reusable UI,
+        API-driven screens, and maintainable frontend architecture.
+      </p>
+    </div>
+
+    <div class="about-focus__grid">
+      @for (area of focusAreas(); track area.title) {
+        <article class="about-focus__card">
+          <h3 class="about-focus__card-title">
+            {{ area.title }}
+          </h3>
+
+          <p class="about-focus__card-description">
+            {{ area.description }}
+          </p>
+
+          <ul class="about-focus__list" [attr.aria-label]="area.title">
+            @for (item of area.items; track item) {
+              <li class="about-focus__item">
+                {{ item }}
+              </li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="project-exposure section" aria-labelledby="project-exposure-title">
+  <div class="app-container project-exposure__container">
+    <div class="project-exposure__header">
+      <p class="section__eyebrow">Project Exposure</p>
+
+      <h2 id="project-exposure-title" class="section__title">
+        Experience with enterprise Angular applications and engineering workflows.
+      </h2>
+    </div>
+
+    <div class="project-exposure__grid">
+      @for (project of projectExposure(); track project.title) {
+        <article class="project-exposure__card">
+          <h3 class="project-exposure__card-title">
+            {{ project.title }}
+          </h3>
+
+          <p class="project-exposure__card-description">
+            {{ project.description }}
+          </p>
+
+          <ul class="project-exposure__points">
+            @for (point of project.points; track point) {
+              <li class="project-exposure__point">
+                {{ point }}
+              </li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="workflow section" aria-labelledby="workflow-title">
+  <div class="app-container workflow__container">
+    <div class="workflow__header">
+      <p class="section__eyebrow">How I Work</p>
+
+      <h2 id="workflow-title" class="section__title">
+        I prefer a structured approach from requirement to polished UI.
+      </h2>
+    </div>
+
+    <div class="workflow__steps">
+      @for (item of workflowSteps(); track item.step) {
+        <article class="workflow__step">
+          <span class="workflow__step-number">
+            {{ item.step }}
+          </span>
+
+          <h3 class="workflow__step-title">
+            {{ item.title }}
+          </h3>
+
+          <p class="workflow__step-description">
+            {{ item.description }}
+          </p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
