@@ -17,8 +17,12 @@ html {
 body {
   min-height: 100vh;
   font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
   color: var(--color-text-primary);
   background: var(--color-background);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 p,
@@ -30,6 +34,11 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 button,
@@ -47,4 +56,11 @@ img,
 svg {
   display: block;
   max-width: 100%;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
