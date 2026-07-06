@@ -1,6 +1,4 @@
 :root {
-  color-scheme: dark;
-
   --color-background: #0f172a;
   --color-background-soft: #111827;
 
@@ -15,6 +13,9 @@
   --color-primary: #38bdf8;
   --color-primary-hover: #0ea5e9;
   --color-primary-soft: rgba(56, 189, 248, 0.12);
+
+  --color-accent: #8b5cf6;
+  --color-accent-soft: rgba(139, 92, 246, 0.14);
 
   --color-border: rgba(148, 163, 184, 0.24);
   --color-border-strong: rgba(148, 163, 184, 0.4);

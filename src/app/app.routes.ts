@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
+import { Shell } from '@layout/shell/shell';
 
-import { Shell } from './layout/shell/shell';
 
 export const routes: Routes = [
   {
