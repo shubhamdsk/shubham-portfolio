@@ -9,10 +9,11 @@ import { PORTFOLIO_LINKS, SOCIAL_LINKS } from '@core/constants/portfolio.constan
 import { HeroAction, HeroCodeLine, HeroContent, HeroStat } from '@models/hero.model';
 import { Experience } from "@features/experience/experience";
 import { Projects } from "@features/projects/projects";
+import { Contact } from "@features/contact/contact";
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, About, Skills, Experience, Projects],
+  imports: [RouterLink, About, Skills, Experience, Projects, Contact],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
