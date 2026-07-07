@@ -2,4 +2,5 @@ export interface NavigationItem {
   readonly label: string;
   readonly path: string;
   readonly exact?: boolean;
+  readonly ariaLabel: string;
 }

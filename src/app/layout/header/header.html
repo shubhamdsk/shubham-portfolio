@@ -1,6 +1,7 @@
 <header class="header header--scrolled">
     <div class="app-container header__container">
-        <a class="header__brand" routerLink="/" aria-label="Go to Shubham Deshmukh portfolio home">
+        <a class="header__brand" routerLink="/" aria-label="Go to Shubham Deshmukh portfolio home"
+            (click)="onNavigationClick()">
             <span class="header__brand-mark" aria-hidden="true">SD</span>
 
             <span class="header__brand-content">
@@ -12,9 +13,9 @@
         <nav id="primary-navigation" class="header__nav" [class.header__nav--open]="isMenuOpen()"
             aria-label="Primary navigation">
             @for (item of navigationItems; track item.path) {
-            <a class="header__nav-link" routerLinkActive="header__nav-link--active"
-                [routerLinkActiveOptions]="{ exact: item.exact ?? false }" [routerLink]="item.path"
-                ariaCurrentWhenActive="page" (click)="onNavigationClick()">
+            <a class="header__nav-link" routerLinkActive="header__nav-link--active" ariaCurrentWhenActive="page"
+                [routerLink]="item.path" [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
+                [attr.aria-label]="item.ariaLabel" (click)="onNavigationClick()">
                 {{ item.label }}
             </a>
             }

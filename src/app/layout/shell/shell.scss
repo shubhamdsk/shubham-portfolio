@@ -13,11 +13,9 @@
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
 
-  // Firefox
   scrollbar-width: thin;
   scrollbar-color: var(--color-border-strong) transparent;
 
-  // Chrome / Edge / Safari
   &::-webkit-scrollbar {
     width: 0.5rem;
   }
