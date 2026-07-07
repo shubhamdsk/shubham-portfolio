@@ -1,0 +1,12 @@
+<app-header #appHeader (sectionNavigation)="onSectionNavigation($event)" />
+
+<main #mainContent class="main-content">
+  <router-outlet />
+</main>
+
+<button class="scroll-top" type="button" aria-label="Scroll to top" [class.scroll-top--visible]="isScrollTopVisible()"
+  (click)="onScrollTop()">
+  ↑
+</button>
+
+<app-footer />

@@ -1,0 +1,90 @@
+<section id="home" class="hero section" aria-labelledby="hero-title">
+    <div class="app-container hero__container">
+        <div class="hero__content" appRevealOnScroll [delay]="0">
+            <p class="hero__eyebrow">{{ heroContent.eyebrow }}</p>
+
+            <h1 id="hero-title" class="hero__title">
+                {{ heroContent.title }}
+            </h1>
+
+            <p class="hero__description">
+                {{ heroContent.description }}
+            </p>
+
+            <div class="hero__actions" aria-label="Hero actions">
+                @for (action of heroActions; track action.label) {
+                @if (action.path) {
+                <a class="btn" [class.btn--primary]="action.variant === 'primary'"
+                    [class.btn--secondary]="action.variant === 'secondary'" [routerLink]="action.path">
+                    {{ action.label }}
+                </a>
+                } @else {
+                <a class="btn" [class.btn--primary]="action.variant === 'primary'"
+                    [class.btn--secondary]="action.variant === 'secondary'" [href]="action.href"
+                    [download]="action.download">
+                    {{ action.label }}
+                </a>
+                }
+                }
+            </div>
+
+            <div class="hero__socials" aria-label="Social links">
+                @for (social of socialLinks; track social.url) {
+                <a class="hero__social-link" [href]="social.url" target="_blank" rel="noopener noreferrer"
+                    [attr.aria-label]="social.ariaLabel">
+                    {{ social.label }}
+                </a>
+                }
+            </div>
+
+            <ul class="hero__badges" aria-label="Core frontend skills">
+                @for (badge of techBadges; track badge.label) {
+                <li class="hero__badge">
+                    {{ badge.label }}
+                </li>
+                }
+            </ul>
+        </div>
+
+        <div class="hero__visual" appRevealOnScroll [delay]="120"  aria-label="Developer profile highlight">
+            <div class="hero__card">
+                <div class="hero__card-header" aria-hidden="true">
+                    <span class="hero__card-dot"></span>
+                    <span class="hero__card-dot"></span>
+                    <span class="hero__card-dot"></span>
+                </div>
+
+                <div class="hero__code" aria-label="Developer information code card">
+                    @for (line of codeLines; track line.content) {
+                    <p>
+                        @if (line.prefix) {
+                        <span>{{ line.prefix }}</span>
+                        }
+
+                        {{ line.content }}
+                    </p>
+                    }
+                </div>
+            </div>
+
+            <div class="hero__stats" aria-label="Professional highlights">
+                @for (stat of heroStats; track stat.label) {
+                <div class="hero__stat">
+                    <strong>{{ stat.value }}</strong>
+                    <span>{{ stat.label }}</span>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-about />
+
+<app-skills />
+
+<app-experience />
+
+<app-projects />
+
+<app-contact />
