@@ -1,1 +1,55 @@
-<p>contact works!</p>
+<section id="contact" class="contact section" aria-labelledby="contact-title">
+    <div class="app-container contact__container">
+        <div class="contact__content">
+            <p class="section__eyebrow">
+                {{ contactContent().eyebrow }}
+            </p>
+
+            <h1 id="contact-title" class="section__title">
+                {{ contactContent().title }}
+            </h1>
+
+            <p class="section__description">
+                {{ contactContent().description }}
+            </p>
+
+            <div class="contact__availability">
+                <h2 class="contact__availability-title">
+                    {{ availability().title }}
+                </h2>
+
+                <p class="contact__availability-description">
+                    {{ availability().description }}
+                </p>
+
+                <ul class="contact__availability-list">
+                    @for (point of availability().points; track point) {
+                    <li class="contact__availability-item">
+                        {{ point }}
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="contact__links" aria-label="Contact links">
+            @for (link of contactLinks(); track link.label) {
+            <a class="contact__link-card" [href]="link.href" [attr.aria-label]="link.ariaLabel"
+                [attr.target]="link.isExternal ? '_blank' : null"
+                [attr.rel]="link.isExternal ? 'noopener noreferrer' : null">
+                <span class="contact__link-label">
+                    {{ link.label }}
+                </span>
+
+                <strong class="contact__link-value">
+                    {{ link.value }}
+                </strong>
+
+                <span class="contact__link-action" aria-hidden="true">
+                    Open
+                </span>
+            </a>
+            }
+        </div>
+    </div>
+</section>
