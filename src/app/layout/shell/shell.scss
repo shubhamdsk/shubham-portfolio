@@ -79,5 +79,14 @@
   .scroll-top {
     right: var(--space-md);
     bottom: calc(3rem + var(--space-md));
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .scroll-top {
+    right: var(--space-sm);
+    bottom: calc(3rem + var(--space-sm));
   }
 }

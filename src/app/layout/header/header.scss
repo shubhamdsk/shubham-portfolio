@@ -166,12 +166,57 @@
   }
 
   @include respond-sm {
+    &__container {
+      gap: var(--space-sm);
+    }
+
+    &__brand-mark {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    &__brand-name {
+      max-width: 9rem;
+      font-size: var(--font-size-sm);
+    }
+
     &__brand-role {
       display: none;
     }
 
     &__resume {
       display: none;
+    }
+  }
+
+  @include respond-lg {
+    &__nav {
+      position: absolute;
+      top: calc(100% + var(--space-sm));
+      right: var(--space-md);
+      left: var(--space-md);
+      display: none;
+      max-height: calc(100vh - var(--header-height) - 2rem);
+      padding: var(--space-md);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow-y: auto;
+      background: rgba(15, 23, 42, 0.98);
+      box-shadow: var(--shadow-soft);
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &__nav--open {
+      display: flex;
+    }
+
+    &__nav-link {
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    &__menu-button {
+      display: inline-flex;
     }
   }
 }

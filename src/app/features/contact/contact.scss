@@ -140,5 +140,9 @@
     &__link-card {
       padding: var(--space-lg);
     }
+
+    &__link-value {
+      font-size: var(--font-size-sm);
+    }
   }
 }
