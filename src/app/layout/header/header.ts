@@ -1,8 +1,8 @@
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { ChangeDetectionStrategy, Component, computed, inject, output, signal } from '@angular/core';
 
-import { NavigationItem } from '@models/navigation.model';
 import { PORTFOLIO_LINKS } from '@core/constants/portfolio.constant';
+import { NavigationItem } from '@models/navigation.model';
 
 @Component({
   selector: 'app-header',
@@ -12,49 +12,71 @@ import { PORTFOLIO_LINKS } from '@core/constants/portfolio.constant';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Header {
+  private readonly router = inject(Router);
+
+  readonly sectionNavigation = output<string>();
+
   protected readonly isMenuOpen = signal(false);
+  protected readonly activeSectionId = signal('home');
 
   protected readonly resume = PORTFOLIO_LINKS.resume;
+
+  protected readonly isHomeRoute = computed(() => this.router.url === '/');
 
   protected readonly navigationItems: readonly NavigationItem[] = [
     {
       label: 'Home',
       path: '/',
+      sectionId: 'home',
       exact: true,
       ariaLabel: 'Go to home section',
     },
     {
       label: 'About',
       path: '/about',
-      ariaLabel: 'Go to about page',
+      sectionId: 'about',
+      ariaLabel: 'Go to about section',
     },
     {
       label: 'Skills',
       path: '/skills',
-      ariaLabel: 'Go to skills page',
+      sectionId: 'skills',
+      ariaLabel: 'Go to skills section',
     },
     {
       label: 'Experience',
       path: '/experience',
-      ariaLabel: 'Go to experience page',
+      sectionId: 'experience',
+      ariaLabel: 'Go to experience section',
     },
     {
       label: 'Projects',
       path: '/projects',
-      ariaLabel: 'Go to projects page',
+      sectionId: 'projects',
+      ariaLabel: 'Go to projects section',
     },
     {
       label: 'Contact',
       path: '/contact',
-      ariaLabel: 'Go to contact page',
+      sectionId: 'contact',
+      ariaLabel: 'Go to contact section',
     },
   ];
+
+  setActiveSection(sectionId: string): void {
+    this.activeSectionId.set(sectionId);
+  }
 
   protected onMenuToggle(): void {
     this.isMenuOpen.update((isOpen) => !isOpen);
   }
 
-  protected onNavigationClick(): void {
+  protected onNavigationClick(item: NavigationItem, event: MouseEvent): void {
     this.isMenuOpen.set(false);
+
+    if (this.isHomeRoute() && item.sectionId) {
+      event.preventDefault();
+      this.sectionNavigation.emit(item.sectionId);
+    }
   }
 }

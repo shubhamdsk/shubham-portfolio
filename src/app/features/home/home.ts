@@ -10,10 +10,11 @@ import { HeroAction, HeroCodeLine, HeroContent, HeroStat } from '@models/hero.mo
 import { Experience } from "@features/experience/experience";
 import { Projects } from "@features/projects/projects";
 import { Contact } from "@features/contact/contact";
+import { RevealOnScroll } from "@core/directives/reveal-on-scroll/reveal-on-scroll";
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, About, Skills, Experience, Projects, Contact],
+  imports: [RouterLink, About, Skills, Experience, Projects, Contact, RevealOnScroll],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

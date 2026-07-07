@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { RevealOnScroll } from '@core/directives/reveal-on-scroll/reveal-on-scroll';
 
 import { SkillGroup, SkillHighlight, SkillPageContent } from '@models/skill.model';
 
 @Component({
   selector: 'app-skills',
-  imports: [],
+  imports: [RevealOnScroll],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

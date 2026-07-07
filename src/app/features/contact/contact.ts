@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
 import { ContactAvailability, ContactLink, ContactPageContent, } from '@models/contact.model';
 import { PORTFOLIO_LINKS } from '@core/constants/portfolio.constant';
+import { RevealOnScroll } from "@core/directives/reveal-on-scroll/reveal-on-scroll";
 
 @Component({
   selector: 'app-contact',
-  imports: [],
+  imports: [RevealOnScroll],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

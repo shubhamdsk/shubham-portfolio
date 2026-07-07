@@ -1,6 +1,6 @@
-<section class="hero section" aria-labelledby="hero-title">
+<section id="home" class="hero section" aria-labelledby="hero-title">
     <div class="app-container hero__container">
-        <div class="hero__content">
+        <div class="hero__content" appRevealOnScroll [delay]="0">
             <p class="hero__eyebrow">{{ heroContent.eyebrow }}</p>
 
             <h1 id="hero-title" class="hero__title">
@@ -46,7 +46,7 @@
             </ul>
         </div>
 
-        <div class="hero__visual" aria-label="Developer profile highlight">
+        <div class="hero__visual" appRevealOnScroll [delay]="120"  aria-label="Developer profile highlight">
             <div class="hero__card">
                 <div class="hero__card-header" aria-hidden="true">
                     <span class="hero__card-dot"></span>

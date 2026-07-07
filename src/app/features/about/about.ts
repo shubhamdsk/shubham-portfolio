@@ -1,15 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
-import {
-  AboutContent,
-  AboutHighlight,
-  AboutProjectExposure,
-  AboutWorkflowStep,
-} from '@models/about.model';
+import { RevealOnScroll } from "@core/directives/reveal-on-scroll/reveal-on-scroll";
+import { AboutContent, AboutHighlight, AboutProjectExposure, AboutWorkflowStep, } from '@models/about.model';
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [RevealOnScroll],
   templateUrl: './about.html',
   styleUrl: './about.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

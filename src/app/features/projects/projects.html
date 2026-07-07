@@ -1,6 +1,6 @@
 <section id="projects" class="projects section" aria-labelledby="projects-title">
     <div class="app-container projects__container">
-        <div class="projects__header">
+        <div class="projects__header" appRevealOnScroll>
             <p class="section__eyebrow">
                 {{ projectsContent().eyebrow }}
             </p>
@@ -15,8 +15,8 @@
         </div>
 
         <div class="projects__grid">
-            @for (project of projects(); track project.title) {
-            <article class="projects__card">
+            @for (project of projects(); track project.title; let index = $index) {
+            <article class="projects__card" appRevealOnScroll [delay]="index * 90">
                 <div class="projects__card-header">
                     <p class="projects__category">
                         {{ project.category }}

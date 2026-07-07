@@ -92,7 +92,8 @@
       outline-offset: 3px;
     }
 
-    &--active {
+    &--active,
+    &--section-active {
       color: var(--color-primary);
       background: var(--color-primary-soft);
     }

@@ -1,6 +1,6 @@
 <section id="experience" class="experience section" aria-labelledby="experience-title">
   <div class="app-container experience__container">
-    <div class="experience__header">
+    <div class="experience__header" aria-label="Professional experience overview" appRevealOnScroll>
       <p class="section__eyebrow">
         {{ experienceContent().eyebrow }}
       </p>
@@ -15,8 +15,8 @@
     </div>
 
     <div class="experience__highlights" aria-label="Experience highlights">
-      @for (highlight of experienceHighlights(); track highlight.label) {
-        <article class="experience__highlight">
+      @for (highlight of experienceHighlights(); track highlight.label; let index = $index) {
+        <article class="experience__highlight" appRevealOnScroll [delay]="index * 90">
           <strong class="experience__highlight-value">
             {{ highlight.value }}
           </strong>
@@ -33,11 +33,11 @@
     </div>
 
     <div class="experience__timeline" aria-label="Professional experience timeline">
-      @for (item of experiences(); track item.company) {
+      @for (item of experiences(); track item.company; let index = $index) {
         <article class="experience__item">
           <div class="experience__marker" aria-hidden="true"></div>
 
-          <div class="experience__card">
+          <div class="experience__card" appRevealOnScroll [delay]="index * 120">
             <div class="experience__card-header">
               <div>
                 <h2 class="experience__role">
