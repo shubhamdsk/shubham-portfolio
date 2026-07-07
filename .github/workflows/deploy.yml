@@ -3,7 +3,7 @@ name: Deploy Angular Portfolio
 on:
   push:
     branches:
-      - dev
+      - master
 
 permissions:
   contents: read
