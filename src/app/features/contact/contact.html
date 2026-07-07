@@ -1,6 +1,6 @@
 <section id="contact" class="contact section" aria-labelledby="contact-title">
     <div class="app-container contact__container">
-        <div class="contact__content">
+        <div class="contact__content" appRevealOnScroll>
             <p class="section__eyebrow">
                 {{ contactContent().eyebrow }}
             </p>
@@ -23,8 +23,8 @@
                 </p>
 
                 <ul class="contact__availability-list">
-                    @for (point of availability().points; track point) {
-                    <li class="contact__availability-item">
+                    @for (point of availability().points; track point; let index = $index) {
+                    <li class="contact__availability-item" appRevealOnScroll [delay]="index * 90">
                         {{ point }}
                     </li>
                     }

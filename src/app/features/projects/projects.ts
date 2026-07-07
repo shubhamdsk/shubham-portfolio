@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { RevealOnScroll } from '@core/directives/reveal-on-scroll/reveal-on-scroll';
 
 import { ProjectItem, ProjectPageContent } from '@models/project.model';
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [RevealOnScroll],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,146 +1,226 @@
-# 👋 Shubham Portfolio
 
-A modern developer portfolio built with Angular 21, TypeScript, SCSS, and Angular Signals.
+````md
+# Shubham Portfolio
 
-This portfolio showcases my professional experience, technical skills, projects, and frontend development journey while following modern Angular architecture and best practices.
+A modern personal portfolio built with Angular 21, TypeScript, SCSS, Signals, standalone components, and route-based reusable sections.
 
----
+This portfolio showcases my frontend development experience, technical skills, selected projects, professional background, and contact details.
 
-## 🚀 Tech Stack
+## Live Sections
 
-- Angular 21
-- TypeScript
-- Angular Signals
-- Standalone Components
-- Angular Router
-- SCSS
-- RxJS
-- Git & GitHub
+- Home
+- About
+- Skills
+- Experience
+- Projects
+- Contact
 
----
+The same section components are reused in two ways:
 
-## ✨ Features
+- As part of the Home landing page
+- As separate routed pages
 
-- Responsive Design
-- Modern UI/UX
-- Angular Signals for State Management
-- Standalone Components Architecture
-- Lazy Loaded Routes
-- Project Showcase
-- Skills & Experience Section
-- Contact Section
-- Optimized Performance
-- AI-Assisted Development Workflow Exploration
+Example:
 
----
+```text
+/           → Hero + About + Skills + Experience + Projects + Contact
+/about      → About page
+/skills     → Skills page
+/experience → Experience page
+/projects   → Projects page
+/contact    → Contact page
+````
 
-## 📂 Project Structure
+## Tech Stack
+
+* Angular 21
+* TypeScript
+* SCSS
+* Angular Signals
+* Standalone Components
+* Angular Router
+* OnPush Change Detection
+* Native Angular Control Flow
+* BEM-based SCSS
+* Responsive UI
+* GitHub Pages ready
+
+## Features
+
+* Modern Angular 21 project setup
+* Standalone components
+* Route-based feature structure
+* Reusable portfolio sections
+* Fixed header and footer layout
+* Internal scroll container
+* Smooth one-page navigation on Home
+* Active section highlighting
+* Scroll-to-top button
+* Scroll reveal animations
+* SEO meta tags
+* Open Graph and Twitter preview image
+* Custom favicon and app icons
+* Responsive layout for mobile, tablet, and desktop
+* Clean SCSS architecture with global design tokens
+
+## Folder Structure
 
 ```text
 src/
 ├── app/
 │   ├── core/
-│   ├── shared/
+│   │   ├── constants/
+│   │   └── directives/
 │   ├── features/
+│   │   ├── about/
+│   │   ├── contact/
+│   │   ├── experience/
+│   │   ├── home/
+│   │   ├── projects/
+│   │   └── skills/
 │   ├── layout/
-│   └── app.routes.ts
+│   │   ├── footer/
+│   │   ├── header/
+│   │   └── shell/
+│   ├── models/
+│   ├── services/
+│   └── shared/
+├── styles/
+│   ├── abstracts/
+│   ├── animations/
+│   ├── base/
+│   ├── components/
+│   ├── overrides/
+│   └── vendors/
+└── styles.scss
+
+public/
 ├── assets/
-├── environments/
-└── styles/
+│   ├── documents/
+│   └── images/
+└── favicon.ico
 ```
 
----
+## Main Pages
 
-## 🛠️ Getting Started
+### Home
 
-### Clone Repository
+The Home page works as a complete landing page and reuses all major sections:
 
-```bash
-git clone https://github.com/shubhamdsk/shubham-portfolio.git
-cd shubham-portfolio
+```text
+Hero → About → Skills → Experience → Projects → Contact
 ```
 
-### Install Dependencies
+### About
+
+Highlights professional summary, frontend focus, project exposure, and working approach.
+
+### Skills
+
+Shows frontend core skills, Angular ecosystem, UI development, API handling, tools, and current learning areas.
+
+### Experience
+
+Displays professional experience, responsibilities, technologies, and enterprise frontend exposure.
+
+### Projects
+
+Showcases selected work including:
+
+* AI Assisted SW
+* Model Based Design
+* Angular Portfolio
+
+### Contact
+
+Includes email, LinkedIn, GitHub, location, and availability details.
+
+## Local Setup
+
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-### Start Development Server
+Run development server:
 
 ```bash
-ng serve
+npx ng serve
 ```
 
-Navigate to:
+Open:
 
 ```text
 http://localhost:4200
 ```
 
----
-
-## 📦 Build Project
+Build production version:
 
 ```bash
-ng build
+npx ng build
 ```
 
-Production build files will be generated inside:
+## Assets
+
+Resume file should be placed here:
 
 ```text
-dist/
+public/assets/documents/shubham-deshmukh-resume.pdf
 ```
 
----
+SEO preview and icons should be placed here:
 
-## 🎯 Sections
+```text
+public/favicon.ico
+public/assets/images/portfolio-preview.png
+public/assets/images/favicon-32x32.png
+public/assets/images/icon-192.png
+public/assets/images/icon-512.png
+public/assets/images/apple-touch-icon.png
+```
 
-- Home
-- About Me
-- Skills
-- Experience
-- Projects
-- Certifications
-- Contact
+## SEO
 
----
+The project includes:
 
-## 📌 Featured Projects
+* Meta description
+* Keywords
+* Author meta tag
+* Open Graph tags
+* Twitter card tags
+* Custom favicon
+* Portfolio preview image
 
-### AI Assisted SW
+## Development Workflow
 
-Enterprise Angular application and VS Code extension focused on automated build error analysis, code tracking, and AI-powered resolution workflows.
+Feature work is handled using separate Git branches.
 
-### Model Based Design (MBD)
+Example:
 
-Angular-based requirement management and AI-assisted model generation platform integrating Polarion, MATLAB, and Simulink workflows.
+```bash
+git checkout dev
+git pull origin dev
+git checkout -b feature/projects-section
+```
 
----
+After implementation:
 
-## 🌱 Learning & Exploration
+```bash
+npx ng build
+git add .
+git commit -m "feat: add projects page and reuse on home"
+git push
+```
 
-This project is also used to explore:
-
-- Angular 21 Features
-- Angular MCP Ecosystem
-- AI-Assisted Development
-- Modern Frontend Architecture
-- Performance Optimization Techniques
-
----
-
-## 👨‍💻 Author
+## Author
 
 **Shubham Deshmukh**
+Frontend Developer | Angular | TypeScript | JavaScript
 
-Frontend Developer specializing in Angular, TypeScript, JavaScript, SCSS, RxJS, and modern web application development.
+* GitHub: [https://github.com/shubhamdsk](https://github.com/shubhamdsk)
+* LinkedIn: [https://www.linkedin.com/in/shubham-deshmukh1720](https://www.linkedin.com/in/shubham-deshmukh1720)
 
-- GitHub: https://github.com/shubhamdsk
-- LinkedIn: https://www.linkedin.com/in/shubham-deshmukh1720
+## License
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
+This project is created for personal portfolio use.

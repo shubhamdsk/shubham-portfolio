@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
 import { ExperienceHighlight, ExperienceItem, ExperiencePageContent, } from '@models/experience.model';
+import { RevealOnScroll } from "@core/directives/reveal-on-scroll/reveal-on-scroll";
 
 @Component({
   selector: 'app-experience',
-  imports: [],
+  imports: [RevealOnScroll],
   templateUrl: './experience.html',
   styleUrl: './experience.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

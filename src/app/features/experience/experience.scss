@@ -217,5 +217,13 @@
     &__card {
       padding: var(--space-lg);
     }
+
+    &__role {
+      font-size: var(--font-size-md);
+    }
+
+    &__summary {
+      font-size: var(--font-size-sm);
+    }
   }
 }
