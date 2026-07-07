@@ -7,10 +7,11 @@ import { TechBadge } from '@models/tech-badge.model';
 import { SocialLink } from '@models/social-link.model';
 import { PORTFOLIO_LINKS, SOCIAL_LINKS } from '@core/constants/portfolio.constant';
 import { HeroAction, HeroCodeLine, HeroContent, HeroStat } from '@models/hero.model';
+import { Experience } from "@features/experience/experience";
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, About, Skills],
+  imports: [RouterLink, About, Skills, Experience],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

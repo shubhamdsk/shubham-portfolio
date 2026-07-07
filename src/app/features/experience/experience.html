@@ -1,1 +1,82 @@
-<p>experience works!</p>
+<section id="experience" class="experience section" aria-labelledby="experience-title">
+  <div class="app-container experience__container">
+    <div class="experience__header">
+      <p class="section__eyebrow">
+        {{ experienceContent().eyebrow }}
+      </p>
+
+      <h1 id="experience-title" class="section__title">
+        {{ experienceContent().title }}
+      </h1>
+
+      <p class="section__description">
+        {{ experienceContent().description }}
+      </p>
+    </div>
+
+    <div class="experience__highlights" aria-label="Experience highlights">
+      @for (highlight of experienceHighlights(); track highlight.label) {
+        <article class="experience__highlight">
+          <strong class="experience__highlight-value">
+            {{ highlight.value }}
+          </strong>
+
+          <h2 class="experience__highlight-title">
+            {{ highlight.label }}
+          </h2>
+
+          <p class="experience__highlight-description">
+            {{ highlight.description }}
+          </p>
+        </article>
+      }
+    </div>
+
+    <div class="experience__timeline" aria-label="Professional experience timeline">
+      @for (item of experiences(); track item.company) {
+        <article class="experience__item">
+          <div class="experience__marker" aria-hidden="true"></div>
+
+          <div class="experience__card">
+            <div class="experience__card-header">
+              <div>
+                <h2 class="experience__role">
+                  {{ item.role }}
+                </h2>
+
+                <p class="experience__company">
+                  {{ item.company }}
+                </p>
+              </div>
+
+              <div class="experience__meta">
+                <span>{{ item.duration }}</span>
+                <span>{{ item.location }}</span>
+              </div>
+            </div>
+
+            <p class="experience__summary">
+              {{ item.summary }}
+            </p>
+
+            <ul class="experience__responsibilities">
+              @for (responsibility of item.responsibilities; track responsibility) {
+                <li class="experience__responsibility">
+                  {{ responsibility }}
+                </li>
+              }
+            </ul>
+
+            <ul class="experience__technologies" [attr.aria-label]="item.company + ' technologies'">
+              @for (technology of item.technologies; track technology) {
+                <li class="experience__technology">
+                  {{ technology }}
+                </li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
