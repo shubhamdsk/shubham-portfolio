@@ -1,8 +1,9 @@
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ChangeDetectionStrategy, Component, computed, inject, output, signal } from '@angular/core';
 
-import { PORTFOLIO_LINKS } from '@core/constants/portfolio.constant';
 import { NavigationItem } from '@models/navigation.model';
+import { PORTFOLIO_LINKS } from '@core/constants/portfolio.constant';
+import { ResumeDownload } from '@services/resume-download-service/resume-download';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ import { NavigationItem } from '@models/navigation.model';
 })
 export class Header {
   private readonly router = inject(Router);
+  private readonly resumeDownloadService = inject(ResumeDownload);
 
   readonly sectionNavigation = output<string>();
 
@@ -78,5 +80,9 @@ export class Header {
       event.preventDefault();
       this.sectionNavigation.emit(item.sectionId);
     }
+  }
+
+  protected async onResumeDownload(): Promise<void> {
+    await this.resumeDownloadService.downloadResume();
   }
 }
