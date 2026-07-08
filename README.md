@@ -1,5 +1,4 @@
 
-````md
 # Shubham Portfolio
 
 A modern personal portfolio built with Angular 21, TypeScript, SCSS, Signals, standalone components, and route-based reusable sections.
