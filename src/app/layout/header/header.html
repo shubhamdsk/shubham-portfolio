@@ -23,9 +23,9 @@
         </nav>
 
         <div class="header__actions">
-            <a class="btn btn--primary header__resume" [href]="resume.path" [download]="resume.fileName">
+            <button class="btn btn--primary header__resume" type="button" (click)="onResumeDownload()">
                 Resume
-            </a>
+            </button>
 
             <button class="header__menu-button" type="button" aria-label="Toggle navigation menu"
                 aria-controls="primary-navigation" [attr.aria-expanded]="isMenuOpen()" (click)="onMenuToggle()">

@@ -18,14 +18,12 @@
                     [class.btn--secondary]="action.variant === 'secondary'" [routerLink]="action.path">
                     {{ action.label }}
                 </a>
-                } @else {
-                <a class="btn" [class.btn--primary]="action.variant === 'primary'"
-                    [class.btn--secondary]="action.variant === 'secondary'" [href]="action.href"
-                    [download]="action.download">
-                    {{ action.label }}
-                </a>
                 }
                 }
+
+                <button class="btn btn--secondary" type="button" (click)="onResumeDownload()">
+                    Download Resume
+                </button>
             </div>
 
             <div class="hero__socials" aria-label="Social links">
@@ -46,7 +44,7 @@
             </ul>
         </div>
 
-        <div class="hero__visual" appRevealOnScroll [delay]="120"  aria-label="Developer profile highlight">
+        <div class="hero__visual" appRevealOnScroll [delay]="120" aria-label="Developer profile highlight">
             <div class="hero__card">
                 <div class="hero__card-header" aria-hidden="true">
                     <span class="hero__card-dot"></span>

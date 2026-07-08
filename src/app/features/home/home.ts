@@ -1,5 +1,5 @@
 import { RouterLink } from '@angular/router';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { About } from "../about/about";
 import { Skills } from "../skills/skills";
@@ -7,9 +7,12 @@ import { TechBadge } from '@models/tech-badge.model';
 import { SocialLink } from '@models/social-link.model';
 import { PORTFOLIO_LINKS, SOCIAL_LINKS } from '@core/constants/portfolio.constant';
 import { HeroAction, HeroCodeLine, HeroContent, HeroStat } from '@models/hero.model';
-import { Experience } from "@features/experience/experience";
-import { Projects } from "@features/projects/projects";
+
 import { Contact } from "@features/contact/contact";
+import { Projects } from "@features/projects/projects";
+
+import { Experience } from "@features/experience/experience";
+import { ResumeDownload } from '@services/resume-download-service/resume-download';
 import { RevealOnScroll } from "@core/directives/reveal-on-scroll/reveal-on-scroll";
 
 @Component({
@@ -20,6 +23,7 @@ import { RevealOnScroll } from "@core/directives/reveal-on-scroll/reveal-on-scro
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home {
+  private readonly resumeDownloadService = inject(ResumeDownload);
 
   protected readonly heroContent: HeroContent = {
     eyebrow: 'Frontend Developer • Angular Specialist',
@@ -33,12 +37,6 @@ export class Home {
       label: 'View Projects',
       path: '/projects',
       variant: 'primary',
-    },
-    {
-      label: 'Download Resume',
-      href: PORTFOLIO_LINKS.resume.path,
-      download: PORTFOLIO_LINKS.resume.fileName,
-      variant: 'secondary',
     },
   ];
 
@@ -89,4 +87,8 @@ export class Home {
       label: 'Assisted Workflow',
     },
   ];
+
+  protected async onResumeDownload(): Promise<void> {
+    await this.resumeDownloadService.downloadResume();
+  }
 }
