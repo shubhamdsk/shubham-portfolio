@@ -23,8 +23,12 @@
         </nav>
 
         <div class="header__actions">
-            <button class="btn btn--primary header__resume" type="button" (click)="onResumeDownload()">
-                Resume
+            <button class="btn btn--primary header__resume" type="button" [disabled]="isResumeDownloading()"
+                (click)="onResumeDownload()">
+                @if (isResumeDownloading()) {
+                <app-loader size="sm" />
+                }
+                {{ resumeButtonLabel() }}
             </button>
 
             <button class="header__menu-button" type="button" aria-label="Toggle navigation menu"
