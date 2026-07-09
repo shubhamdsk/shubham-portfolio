@@ -1,0 +1,45 @@
+:host {
+  position: relative;
+  display: inline-flex;
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+:host(.loader--md) {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.loader__track,
+.loader__arc {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.loader__track {
+  border: 0.14rem solid currentColor;
+  opacity: 0.22;
+}
+
+.loader__arc {
+  border: 0.14rem solid transparent;
+  border-top-color: currentColor;
+  border-left-color: currentColor;
+  animation: loader-spin 0.72s linear infinite;
+}
+
+@keyframes loader-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
