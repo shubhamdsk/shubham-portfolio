@@ -2,12 +2,12 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ChangeDetectionStrategy, Component, computed, inject, output, signal } from '@angular/core';
 
 import { NavigationItem } from '@models/navigation.model';
-import { PORTFOLIO_LINKS } from '@core/constants/portfolio.constant';
 import { ResumeDownload } from '@services/resume-download-service/resume-download';
+import { AppLoader } from '@shared/components/loader/loader';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, AppLoader],
   templateUrl: './header.html',
   styleUrl: './header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,10 +20,12 @@ export class Header {
 
   protected readonly isMenuOpen = signal(false);
   protected readonly activeSectionId = signal('home');
-
-  protected readonly resume = PORTFOLIO_LINKS.resume;
+  protected readonly isResumeDownloading = this.resumeDownloadService.isDownloading;
 
   protected readonly isHomeRoute = computed(() => this.router.url === '/');
+  protected readonly resumeButtonLabel = computed(() =>
+    this.isResumeDownloading() ? 'Downloading...' : 'Resume'
+  );
 
   protected readonly navigationItems: readonly NavigationItem[] = [
     {
