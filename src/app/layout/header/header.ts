@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, output, signal } 
 
 import { NavigationItem } from '@models/navigation.model';
 import { ResumeDownload } from '@services/resume-download-service/resume-download';
+import { ThemeService } from '@services/theme/theme.service';
 import { AppLoader } from '@shared/components/loader/loader';
 
 @Component({
@@ -15,16 +16,21 @@ import { AppLoader } from '@shared/components/loader/loader';
 export class Header {
   private readonly router = inject(Router);
   private readonly resumeDownloadService = inject(ResumeDownload);
+  private readonly themeService = inject(ThemeService);
 
   readonly sectionNavigation = output<string>();
 
   protected readonly isMenuOpen = signal(false);
   protected readonly activeSectionId = signal('home');
   protected readonly isResumeDownloading = this.resumeDownloadService.isDownloading;
+  protected readonly isDarkTheme = this.themeService.isDarkTheme;
 
   protected readonly isHomeRoute = computed(() => this.router.url === '/');
   protected readonly resumeButtonLabel = computed(() =>
     this.isResumeDownloading() ? 'Downloading...' : 'Resume'
+  );
+  protected readonly themeToggleLabel = computed(() =>
+    this.isDarkTheme() ? 'Switch to light theme' : 'Switch to dark theme'
   );
 
   protected readonly navigationItems: readonly NavigationItem[] = [
@@ -86,5 +92,9 @@ export class Header {
 
   protected async onResumeDownload(): Promise<void> {
     await this.resumeDownloadService.downloadResume();
+  }
+
+  protected onThemeToggle(): void {
+    this.themeService.toggleTheme();
   }
 }
