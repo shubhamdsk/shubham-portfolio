@@ -7,8 +7,8 @@
   --radius-xl: 1.5rem;
   --radius-full: 999px;
 
-  --shadow-soft: 0 1.5rem 4rem rgba(15, 23, 42, 0.35);
-  --shadow-glow: 0 0 2rem rgba(56, 189, 248, 0.16);
+  --shadow-soft: var(--shadow-soft-value);
+  --shadow-glow: var(--shadow-glow-value);
 
   --header-height: 4.5rem;
 

@@ -1,14 +1,73 @@
 :root {
+  color-scheme: light;
+
+  --theme-color: #f4f7fb;
+
+  --color-background: #f4f7fb;
+  --color-background-soft: #e8eef5;
+
+  --color-surface: #ffffff;
+  --color-surface-light: #f8fafc;
+  --color-surface-hover: #edf3fb;
+  --color-surface-overlay: rgba(255, 255, 255, 0.76);
+  --color-surface-overlay-strong: rgba(255, 255, 255, 0.86);
+  --color-surface-overlay-solid: rgba(255, 255, 255, 0.96);
+  --color-surface-brand: rgba(255, 255, 255, 0.92);
+  --color-surface-card: rgba(255, 255, 255, 0.94);
+
+  --color-header-background: rgba(255, 255, 255, 0.82);
+  --color-footer-background: rgba(255, 255, 255, 0.86);
+
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-on-primary: #f8fafc;
+
+  --color-primary: #0284c7;
+  --color-primary-hover: #0369a1;
+  --color-primary-soft: rgba(2, 132, 199, 0.12);
+
+  --color-accent: #7c3aed;
+  --color-accent-soft: rgba(124, 58, 237, 0.14);
+
+  --color-border: rgba(15, 23, 42, 0.12);
+  --color-border-strong: rgba(15, 23, 42, 0.22);
+
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --shadow-soft-value: 0 1.5rem 4rem rgba(15, 23, 42, 0.12);
+  --shadow-glow-value: 0 0 2rem rgba(2, 132, 199, 0.18);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --theme-color: #0f172a;
+
   --color-background: #0f172a;
   --color-background-soft: #111827;
 
   --color-surface: #111827;
   --color-surface-light: #1f2937;
   --color-surface-hover: #273449;
+  --color-surface-overlay: rgba(15, 23, 42, 0.72);
+  --color-surface-overlay-strong: rgba(17, 24, 39, 0.78);
+  --color-surface-overlay-solid: rgba(17, 24, 39, 0.9);
+  --color-surface-brand: rgba(17, 24, 39, 0.85);
+  --color-surface-card: rgba(17, 24, 39, 0.88);
+
+  --color-header-background: rgba(15, 23, 42, 0.92);
+  --color-footer-background: rgba(15, 23, 42, 0.92);
 
   --color-text-primary: #f8fafc;
   --color-text-secondary: #cbd5e1;
   --color-text-muted: #94a3b8;
+  --color-on-primary: #0f172a;
 
   --color-primary: #38bdf8;
   --color-primary-hover: #0ea5e9;
@@ -24,6 +83,6 @@
   --color-warning: #f59e0b;
   --color-error: #ef4444;
 
-  --color-white: #ffffff;
-  --color-black: #000000;
+  --shadow-soft-value: 0 1.5rem 4rem rgba(15, 23, 42, 0.35);
+  --shadow-glow-value: 0 0 2rem rgba(56, 189, 248, 0.16);
 }

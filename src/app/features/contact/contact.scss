@@ -28,8 +28,8 @@
     border-radius: var(--radius-xl);
     background:
       linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(139, 92, 246, 0.08)),
-      rgba(15, 23, 42, 0.72);
-    box-shadow: 0 1rem 3rem rgba(15, 23, 42, 0.18);
+      var(--color-surface-overlay);
+    box-shadow: var(--shadow-soft);
   }
 
   &__availability-title {
@@ -80,8 +80,8 @@
     border-radius: var(--radius-xl);
     background:
       linear-gradient(135deg, rgba(56, 189, 248, 0.06), rgba(139, 92, 246, 0.06)),
-      rgba(17, 24, 39, 0.78);
-    box-shadow: 0 1rem 3rem rgba(15, 23, 42, 0.2);
+      var(--color-surface-overlay-strong);
+    box-shadow: var(--shadow-soft);
     transition:
       transform var(--transition-base),
       border-color var(--transition-base),
