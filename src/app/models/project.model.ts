@@ -8,6 +8,7 @@ export interface ProjectItem {
   readonly title: string;
   readonly category: string;
   readonly description: string;
+  readonly icon: string;
   readonly responsibilities: readonly string[];
   readonly technologies: readonly string[];
   readonly highlights: readonly string[];

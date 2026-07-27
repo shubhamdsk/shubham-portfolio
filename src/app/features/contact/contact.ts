@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
-import { ContactAvailability, ContactLink, ContactPageContent, } from '@models/contact.model';
+import { PORTFOLIO_ICONS } from '@core/constants/icon.constant';
 import { PORTFOLIO_LINKS } from '@core/constants/portfolio.constant';
+import { ContactAvailability, ContactLink, ContactPageContent, } from '@models/contact.model';
 import { RevealOnScroll } from "@core/directives/reveal-on-scroll/reveal-on-scroll";
 
 @Component({
@@ -14,7 +15,7 @@ import { RevealOnScroll } from "@core/directives/reveal-on-scroll/reveal-on-scro
 export class Contact {
   protected readonly contactContent = signal<ContactPageContent>({
     eyebrow: 'Contact',
-    title: 'Let’s connect and discuss frontend opportunities.',
+    title: 'Let\'s connect and discuss frontend opportunities.',
     description:
       'I am open to frontend development opportunities where I can work with Angular, TypeScript, scalable UI architecture, and enterprise web applications.',
   });
@@ -25,12 +26,14 @@ export class Contact {
       value: 'shubhamdeshm37@gmail.com',
       href: 'mailto:shubhamdeshm37@gmail.com',
       ariaLabel: 'Send email to Shubham Deshmukh',
+      icon: PORTFOLIO_ICONS.contact.email,
     },
     {
       label: 'LinkedIn',
       value: 'linkedin.com/in/shubham-deshmukh1720',
       href: PORTFOLIO_LINKS.linkedin,
       ariaLabel: 'Visit Shubham Deshmukh LinkedIn profile',
+      icon: PORTFOLIO_ICONS.contact.linkedin,
       isExternal: true,
     },
     {
@@ -38,6 +41,7 @@ export class Contact {
       value: 'github.com/shubhamdsk',
       href: PORTFOLIO_LINKS.github,
       ariaLabel: 'Visit Shubham Deshmukh GitHub profile',
+      icon: PORTFOLIO_ICONS.contact.github,
       isExternal: true,
     },
     {
@@ -45,6 +49,7 @@ export class Contact {
       value: 'Pune, Maharashtra, India',
       href: 'https://www.google.com/maps/place/Pune,+Maharashtra',
       ariaLabel: 'View Pune Maharashtra location on Google Maps',
+      icon: PORTFOLIO_ICONS.contact.location,
       isExternal: true,
     },
   ]);

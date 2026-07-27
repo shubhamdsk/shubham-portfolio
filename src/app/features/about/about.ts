@@ -13,11 +13,11 @@ import { AboutContent, AboutHighlight, AboutProjectExposure, AboutWorkflowStep, 
 export class About {
   protected readonly aboutContent = signal<AboutContent>({
     eyebrow: 'About Me',
-    title: 'Frontend developer focused on Angular, scalable UI, and clean frontend architecture.',
+    title: 'Frontend developer focused on Angular, AI workflows, and engineering platforms.',
     description:
-      'I am a frontend developer with hands-on experience in Angular, TypeScript, JavaScript, SCSS, RxJS, REST API integration, and enterprise UI development.',
+      'I am a frontend developer with hands-on experience in Angular, TypeScript, JavaScript, SCSS, RxJS, Signals, SignalR, REST API integration, and enterprise UI development.',
     additionalDescription:
-      'I enjoy building clean, maintainable, and user-friendly applications with a strong focus on reusable components, performance, accessibility, and practical frontend architecture. My recent work includes Angular-based enterprise applications, AI-assisted software build workflows, VS Code extension-related frontend flows, and Model Based Design interfaces connected with complex engineering processes.',
+      'I enjoy building clean, maintainable, and user-friendly applications with a strong focus on reusable components, performance, accessibility, and practical frontend architecture. My recent work includes Studioforce AI workflow screens, AI-assisted Gradle error analysis with VS Code extension flows, and Model-Based Design interfaces connected with automotive engineering processes.',
   });
 
   protected readonly aboutHighlights = signal<readonly AboutHighlight[]>([
@@ -25,49 +25,60 @@ export class About {
       value: '2+',
       label: 'Years Experience',
       description:
-        'Working on enterprise-level frontend applications using Angular, TypeScript, SCSS, and modern UI practices.',
+        'Building and shipping enterprise Angular applications for global client teams.',
     },
     {
       value: 'Angular',
       label: 'Primary Expertise',
       description:
-        'Strong practical experience with standalone components, Signals, RxJS, Reactive Forms, routing, and reusable architecture.',
+        'Strong practical experience with standalone components, Signals, RxJS, forms, routing, services, and reusable architecture.',
     },
     {
       value: 'Enterprise UI',
       label: 'Project Experience',
       description:
-        'Worked on complex frontend flows involving dashboards, API integration, AG Grid, reusable components, and responsive layouts.',
+        'Worked on complex frontend flows involving dashboards, workflow canvases, API integration, AG Grid, reusable components, and responsive layouts.',
     },
     {
-      value: 'AI Workflow',
+      value: 'AI + MBD',
       label: 'Modern Development',
       description:
-        'Experience with AI-assisted software build flows, developer productivity tooling, and modern Angular development practices.',
+        'Experience with AI agent workflows, real-time monitoring, developer tooling, and automotive Model-Based Design platforms.',
     },
   ]);
 
   protected readonly projectExposure = signal<readonly AboutProjectExposure[]>([
     {
-      title: 'AI Assisted SW',
+      title: 'Studioforce',
       description:
-        'Worked on Angular-based frontend flows related to AI-assisted software build analysis and developer productivity.',
+        'Built Angular frontend features for an AI-powered workflow platform used by Amdocs client teams.',
       points: [
-        'Built and maintained enterprise UI screens using Angular and SCSS.',
-        'Worked with API integration, loading states, error handling, and reusable services.',
-        'Handled dashboard-style layouts, tables, filters, and user interaction flows.',
-        'Contributed to frontend workflows connected with VS Code extension and build error analysis.',
+        'Implemented interactive drag-and-drop workflow canvas behavior for agent-based workflows.',
+        'Built agent, blueprint, prediction, and generated workflow dashboard screens.',
+        'Integrated REST APIs and SignalR for execution controls, live status updates, and monitoring flows.',
+        'Handled reusable UI patterns for agent skill configuration and workflow execution states.',
       ],
     },
     {
-      title: 'Model Based Design',
+      title: 'AI-Assisted SW',
       description:
-        'Worked on frontend flows connected with requirement handling, engineering workflows, and model generation processes.',
+        'Worked on Angular web UI and VS Code extension features for AI-assisted Gradle error analysis and resolution.',
       points: [
-        'Developed Angular UI for requirement-driven workflows.',
-        'Worked with structured data presentation using tables and reusable components.',
-        'Integrated frontend flows with backend APIs and engineering process data.',
-        'Focused on clean UI architecture for complex enterprise use cases.',
+        'Designed project-wise, individual project, and admin configuration dashboards.',
+        'Integrated APIs to send build-error and changed-file context to backend services.',
+        'Displayed AI-assisted solution recommendations with loading, filtering, pagination, and error states.',
+        'Contributed to VS Code extension flows using webviews, commands, and file watching concepts.',
+      ],
+    },
+    {
+      title: 'MBD - Model-Based Design',
+      description:
+        'Worked on Angular modules for requirement-to-Simulink-model generation in an automotive embedded software pipeline.',
+      points: [
+        'Built Excel and Polarion import workflows for requirement datasets.',
+        'Rendered large requirement data tables using AG Grid with pagination and filtering.',
+        'Implemented Level 3-4 requirement selection and agent dispatch flows.',
+        'Managed UI state with Angular Signals and reusable Angular Material components.',
       ],
     },
   ]);

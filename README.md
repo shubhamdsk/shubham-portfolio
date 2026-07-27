@@ -126,8 +126,9 @@ Displays professional experience, responsibilities, technologies, and enterprise
 
 Showcases selected work including:
 
-* AI Assisted SW
-* Model Based Design
+* Studioforce
+* AI-Assisted SW
+* MBD - Model-Based Design
 * Angular Portfolio
 
 ### Contact
