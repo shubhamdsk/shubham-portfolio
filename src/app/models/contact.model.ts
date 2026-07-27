@@ -9,6 +9,7 @@ export interface ContactLink {
   readonly value: string;
   readonly href: string;
   readonly ariaLabel: string;
+  readonly icon: string;
   readonly isExternal?: boolean;
 }
 

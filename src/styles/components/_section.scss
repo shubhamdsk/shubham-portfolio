@@ -12,7 +12,7 @@
 
   &__title {
     max-width: 56rem;
-    font-size: clamp(2rem, 5vw, var(--font-size-2xl));
+    font-size: clamp(1.75rem, 4vw, 2.35rem);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-heading);
     color: var(--color-text-primary);
@@ -30,7 +30,7 @@
     padding-block: var(--space-3xl);
 
     &__title {
-      font-size: clamp(1.75rem, 8vw, 2.35rem);
+      font-size: clamp(1.55rem, 6vw, 2rem);
     }
   }
 }

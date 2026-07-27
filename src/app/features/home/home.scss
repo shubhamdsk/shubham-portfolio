@@ -59,10 +59,10 @@
   }
 
   &__title {
-    font-size: clamp(2.5rem, 7vw, var(--font-size-3xl));
+    font-size: clamp(2.15rem, 4.8vw, 3.35rem);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-heading);
-    letter-spacing: -0.04em;
+    letter-spacing: 0;
   }
 
   &__description {
@@ -215,7 +215,7 @@
 
   @include respond-md {
     &__title {
-      font-size: clamp(2.25rem, 12vw, 3.25rem);
+      font-size: clamp(2rem, 8vw, 2.75rem);
     }
 
     &__description {
@@ -274,7 +274,7 @@
     }
 
     &__title {
-      font-size: clamp(2.4rem, 13vw, 3.4rem);
+      font-size: clamp(1.9rem, 10vw, 2.5rem);
     }
 
     &__description {

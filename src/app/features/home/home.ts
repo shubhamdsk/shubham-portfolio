@@ -31,10 +31,10 @@ export class Home {
   );
 
   protected readonly heroContent: HeroContent = {
-    eyebrow: 'Frontend Developer • Angular Specialist',
-    title: 'Building clean, scalable, and user-friendly Angular applications.',
+    eyebrow: 'Frontend Developer | Angular | TypeScript',
+    title: 'Building Angular apps for AI and engineering workflows.',
     description:
-      'Hi, I\'m Shubham Deshmukh. I work with Angular, TypeScript, JavaScript, SCSS, RxJS, and modern frontend architecture to build enterprise-ready web applications.',
+      'Hi, I\'m Shubham Deshmukh. I work with Angular, TypeScript, RxJS, Signals, SCSS, REST APIs, and SignalR to build production-ready frontend applications for global client teams.',
   };
 
   protected readonly heroActions: readonly HeroAction[] = [
@@ -50,9 +50,9 @@ export class Home {
   protected readonly techBadges: readonly TechBadge[] = [
     { label: 'Angular' },
     { label: 'TypeScript' },
+    { label: 'SignalR' },
     { label: 'Signals' },
     { label: 'RxJS' },
-    { label: 'SCSS' },
     { label: 'REST APIs' },
   ];
 
@@ -68,7 +68,7 @@ export class Home {
       content: "  role: 'Frontend Developer',",
     },
     {
-      content: "  focus: ['Angular', 'TypeScript', 'UI'],",
+      content: "  focus: ['Angular', 'AI Workflows', 'MBD'],",
     },
     {
       content: "  mindset: 'Clean, scalable code'",
@@ -88,8 +88,8 @@ export class Home {
       label: 'Primary Stack',
     },
     {
-      value: 'AI',
-      label: 'Assisted Workflow',
+      value: '3',
+      label: 'Client Projects',
     },
   ];
 
