@@ -3,8 +3,8 @@ import { SocialLink } from '@models/social-link.model';
 
 export const PORTFOLIO_LINKS = {
     resume: {
-        fileName: 'Shubham_Deshmukh_Resume.docx',
-        path: 'assets/documents/Shubham_Deshmukh_Resume.docx',
+        fileName: 'Shubham_Deshmukh_Resume.pdf',
+        path: 'assets/documents/Shubham_Deshmukh_Resume.pdf',
     },
     github: 'https://github.com/shubhamdsk',
     gitfut: 'https://gitfut.com/shubhamdsk',
