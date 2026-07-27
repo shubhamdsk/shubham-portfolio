@@ -37,9 +37,13 @@
             <a class="contact__link-card" [href]="link.href" [attr.aria-label]="link.ariaLabel"
                 [attr.target]="link.isExternal ? '_blank' : null"
                 [attr.rel]="link.isExternal ? 'noopener noreferrer' : null">
-                <span class="contact__link-label">
-                    {{ link.label }}
-                </span>
+                <div class="contact__link-header">
+                    <img class="contact__link-icon" [src]="link.icon" width="48" height="48" alt="" aria-hidden="true">
+
+                    <span class="contact__link-label">
+                        {{ link.label }}
+                    </span>
+                </div>
 
                 <strong class="contact__link-value">
                     {{ link.value }}

@@ -18,13 +18,19 @@
             @for (project of projects(); track project.title; let index = $index) {
             <article class="projects__card" appRevealOnScroll [delay]="index * 90">
                 <div class="projects__card-header">
-                    <p class="projects__category">
-                        {{ project.category }}
-                    </p>
+                    <div class="projects__heading">
+                        <img class="projects__icon" [src]="project.icon" width="48" height="48" alt="" aria-hidden="true">
 
-                    <h2 class="projects__title">
-                        {{ project.title }}
-                    </h2>
+                        <div>
+                            <p class="projects__category">
+                                {{ project.category }}
+                            </p>
+
+                            <h2 class="projects__title">
+                                {{ project.title }}
+                            </h2>
+                        </div>
+                    </div>
 
                     <p class="projects__description">
                         {{ project.description }}

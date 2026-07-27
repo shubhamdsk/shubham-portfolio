@@ -13,9 +13,9 @@ import { RevealOnScroll } from "@core/directives/reveal-on-scroll/reveal-on-scro
 export class Experience {
   protected readonly experienceContent = signal<ExperiencePageContent>({
     eyebrow: 'Experience',
-    title: 'Hands-on experience building Angular-based enterprise frontend applications.',
+    title: 'Building enterprise Angular applications for global client teams.',
     description:
-      'My professional work is focused on Angular, TypeScript, SCSS, reusable UI components, REST API integration, dashboard screens, table flows, and frontend architecture for enterprise applications.',
+      'My professional work is focused on Angular, TypeScript, RxJS, Signals, SCSS, REST API integration, SignalR, dashboards, AG Grid screens, workflow UIs, and frontend architecture for enterprise applications.',
   });
 
   protected readonly experienceHighlights = signal<readonly ExperienceHighlight[]>([
@@ -26,8 +26,13 @@ export class Experience {
     },
     {
       value: '2',
+      label: 'Client Teams',
+      description: 'Worked with Amdocs and Schaeffler client teams through Rabbit and Tortoise Technology Solutions.',
+    },
+    {
+      value: '3',
       label: 'Major Projects',
-      description: 'Worked on AI Assisted SW and Model Based Design frontend workflows.',
+      description: 'Worked on Studioforce, AI-Assisted SW, and MBD frontend workflows.',
     },
     {
       value: 'Angular',
@@ -38,20 +43,19 @@ export class Experience {
 
   protected readonly experiences = signal<readonly ExperienceItem[]>([
     {
-      role: 'Frontend Developer',
-      company: 'HNT / Client: Schaeffler',
-      duration: '2024 - Present',
-      location: 'Bangalore / Pune, India',
+      role: 'Software Engineer',
+      company: 'Rabbit and Tortoise Technology Solutions',
+      duration: 'Jul 2024 - Present',
+      location: 'Pune / Bengaluru, India',
       summary:
-        'Working on enterprise frontend applications using Angular, TypeScript, SCSS, REST APIs, and reusable UI architecture. Contributing to AI-assisted software build workflows and Model Based Design-related frontend modules.',
+        'Developing enterprise Angular applications for Amdocs and Schaeffler across AI workflow, developer tooling, and automotive engineering platforms.',
       responsibilities: [
-        'Developed responsive Angular screens using standalone components, TypeScript, SCSS, and reusable component patterns.',
-        'Integrated REST APIs with typed interfaces, services, loading states, error handling, and clean data mapping.',
-        'Built dashboard-style UI flows with filters, tables, pagination, reusable dropdowns, and user interaction states.',
-        'Worked with AG Grid and Angular Material for enterprise-grade data presentation and UI controls.',
-        'Contributed to AI-assisted software build workflows connected with build error analysis and developer productivity features.',
-        'Worked on Model Based Design frontend flows involving requirement-driven data, engineering workflows, and structured UI screens.',
-        'Improved UI maintainability using BEM-based SCSS, shared models, services, and clean folder structure.',
+        'Develop and maintain enterprise-grade Angular applications using TypeScript, RxJS, Signals, SCSS, and REST APIs.',
+        'Build reusable UI components, interactive dashboards, validation flows, and AG Grid-powered data screens.',
+        'Integrate API flows with clear loading, empty, and error states for production user journeys.',
+        'Implement real-time execution updates using SignalR for workflow monitoring screens.',
+        'Contribute to VS Code extension features for automated Gradle error analysis using webviews, commands, and file watching flows.',
+        'Partner with backend engineers to deliver production-ready features within Agile sprints.',
       ],
       technologies: [
         'Angular',
@@ -60,9 +64,12 @@ export class Experience {
         'SCSS',
         'RxJS',
         'Signals',
+        'SignalR',
         'REST APIs',
         'AG Grid',
         'Angular Material',
+        'VS Code Extension API',
+        'Chokidar',
         'Git',
       ],
     },

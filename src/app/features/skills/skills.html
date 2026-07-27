@@ -31,9 +31,13 @@
     <div class="skills__grid">
       @for (group of skillGroups(); track group.title; let index = $index) {
         <article class="skills__card" appRevealOnScroll [delay]="index * 90">
-          <h2 class="skills__card-title">
-            {{ group.title }}
-          </h2>
+          <div class="skills__card-header">
+            <img class="skills__icon" [src]="group.icon" width="48" height="48" alt="" aria-hidden="true">
+
+            <h2 class="skills__card-title">
+              {{ group.title }}
+            </h2>
+          </div>
 
           <p class="skills__card-description">
             {{ group.description }}
