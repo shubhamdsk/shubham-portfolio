@@ -3,10 +3,10 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 
 import { About } from "../about/about";
 import { Skills } from "../skills/skills";
-import { TechBadge } from '@models/tech-badge.model';
-import { SocialLink } from '@models/social-link.model';
-import { SOCIAL_LINKS } from '@core/constants/portfolio.constant';
+import { HOME_CONTENT } from '@core/constants/section-content.constant';
 import { HeroAction, HeroCodeLine, HeroContent, HeroStat } from '@models/hero.model';
+import { SocialLink } from '@models/social-link.model';
+import { TechBadge } from '@models/tech-badge.model';
 
 import { Contact } from "@features/contact/contact";
 import { Projects } from "@features/projects/projects";
@@ -30,68 +30,12 @@ export class Home {
     this.isResumeDownloading() ? 'Downloading Resume...' : 'Download Resume'
   );
 
-  protected readonly heroContent: HeroContent = {
-    eyebrow: 'Frontend Developer | Angular | TypeScript',
-    title: 'Building Angular apps for AI and engineering workflows.',
-    description:
-      'Hi, I\'m Shubham Deshmukh. I work with Angular, TypeScript, RxJS, Signals, SCSS, REST APIs, and SignalR to build production-ready frontend applications for global client teams.',
-  };
-
-  protected readonly heroActions: readonly HeroAction[] = [
-    {
-      label: 'View Projects',
-      path: '/projects',
-      variant: 'primary',
-    },
-  ];
-
-  protected readonly socialLinks: readonly SocialLink[] = SOCIAL_LINKS;
-
-  protected readonly techBadges: readonly TechBadge[] = [
-    { label: 'Angular' },
-    { label: 'TypeScript' },
-    { label: 'SignalR' },
-    { label: 'Signals' },
-    { label: 'RxJS' },
-    { label: 'REST APIs' },
-  ];
-
-  protected readonly codeLines: readonly HeroCodeLine[] = [
-    {
-      prefix: 'const',
-      content: ' developer = {',
-    },
-    {
-      content: "  name: 'Shubham Deshmukh',",
-    },
-    {
-      content: "  role: 'Frontend Developer',",
-    },
-    {
-      content: "  focus: ['Angular', 'AI Workflows', 'MBD'],",
-    },
-    {
-      content: "  mindset: 'Clean, scalable code'",
-    },
-    {
-      content: '};',
-    },
-  ];
-
-  protected readonly heroStats: readonly HeroStat[] = [
-    {
-      value: '2+',
-      label: 'Years Experience',
-    },
-    {
-      value: 'Angular',
-      label: 'Primary Stack',
-    },
-    {
-      value: '3',
-      label: 'Client Projects',
-    },
-  ];
+  protected readonly heroContent: HeroContent = HOME_CONTENT.hero;
+  protected readonly heroActions: readonly HeroAction[] = HOME_CONTENT.actions;
+  protected readonly socialLinks: readonly SocialLink[] = HOME_CONTENT.socialLinks;
+  protected readonly techBadges: readonly TechBadge[] = HOME_CONTENT.techBadges;
+  protected readonly codeLines: readonly HeroCodeLine[] = HOME_CONTENT.codeLines;
+  protected readonly heroStats: readonly HeroStat[] = HOME_CONTENT.stats;
 
   protected async onResumeDownload(): Promise<void> {
     await this.resumeDownloadService.downloadResume();
