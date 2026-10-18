@@ -1,39 +1,53 @@
-<section id="contact" class="contact section" aria-labelledby="contact-title">
-    <div class="app-container">
-        <div class="contact__panel" appRevealOnScroll>
-            <div class="contact__content">
-                <p class="section__eyebrow">{{ contactContent().eyebrow }}</p>
+<section id="contact" class="section" aria-labelledby="contact-title">
+    <div class="page">
+        <div class="relative overflow-hidden rounded-3xl border border-line bg-surface shadow-card" appRevealOnScroll>
+            <div class="bg-brand absolute inset-x-0 top-0 h-px opacity-70" aria-hidden="true"></div>
 
-                <h2 id="contact-title" class="contact__title">
-                    {{ contactContent().title }}
-                </h2>
+            <div class="relative grid gap-12 p-6 pb-32 sm:p-10 sm:pb-36 lg:grid-cols-[minmax(0,1.3fr)_minmax(18rem,1fr)] lg:items-end lg:p-14 lg:pb-40">
+                <div>
+                    <p class="eyebrow">{{ contactContent().eyebrow }}</p>
 
-                <p class="contact__description">
-                    {{ contactContent().description }}
-                </p>
+                    <h2 id="contact-title"
+                        class="font-display text-4xl leading-[1.05] font-bold tracking-[-0.03em] text-ink md:text-5xl">
+                        {{ contactContent().title }}
+                    </h2>
 
-                <a class="contact__email" [href]="emailHref()"
-                    [attr.aria-label]="'Send an email to ' + contactContent().email">
-                    {{ contactContent().email }}
-                    <span aria-hidden="true">&rarr;</span>
-                </a>
+                    <p class="mt-4 max-w-lg text-muted md:text-lg">
+                        {{ contactContent().description }}
+                    </p>
 
-                <p class="contact__location">{{ contactContent().location }}</p>
+                    <a class="group mt-8 inline-flex max-w-full items-center gap-3 text-lg font-semibold break-all text-ink underline decoration-line-strong decoration-1 underline-offset-[0.35em] transition hover:text-accent hover:decoration-current md:text-2xl"
+                        [href]="emailHref()" [attr.aria-label]="'Send an email to ' + contactContent().email">
+                        {{ contactContent().email }}
+                        <span class="transition group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+                    </a>
+
+                    <p class="mt-4 text-sm text-muted">{{ contactContent().location }}</p>
+                </div>
+
+                <ul class="grid gap-1" aria-label="Other ways to connect">
+                    @for (link of contactLinks(); track link.label) {
+                    <li>
+                        <a class="group flex items-center gap-4 rounded-2xl p-2.5 transition hover:bg-surface-2"
+                            [href]="link.href" [attr.aria-label]="link.ariaLabel"
+                            [attr.target]="link.isExternal ? '_blank' : null"
+                            [attr.rel]="link.isExternal ? 'noopener noreferrer' : null">
+                            <app-icon-badge [icon]="link.icon" [tone]="link.tone" size="sm" />
+
+                            <span class="min-w-0 flex-1">
+                                <span class="block font-mono text-[0.68rem] tracking-[0.14em] text-muted uppercase">{{ link.label }}</span>
+                                <span class="block truncate font-semibold text-ink">{{ link.value }}</span>
+                            </span>
+
+                            <span class="text-muted transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink"
+                                aria-hidden="true">&#8599;</span>
+                        </a>
+                    </li>
+                    }
+                </ul>
             </div>
 
-            <ul class="contact__links" aria-label="Other ways to connect">
-                @for (link of contactLinks(); track link.label) {
-                <li>
-                    <a class="contact__link" [href]="link.href" [attr.aria-label]="link.ariaLabel"
-                        [attr.target]="link.isExternal ? '_blank' : null"
-                        [attr.rel]="link.isExternal ? 'noopener noreferrer' : null">
-                        <span class="contact__link-label">{{ link.label }}</span>
-                        <span class="contact__link-value">{{ link.value }}</span>
-                        <span class="contact__link-arrow" aria-hidden="true">&#8599;</span>
-                    </a>
-                </li>
-                }
-            </ul>
+            <app-brand-wave class="absolute inset-x-0 bottom-0 h-28 sm:h-32" gradientId="contact-wave" />
         </div>
     </div>
 </section>

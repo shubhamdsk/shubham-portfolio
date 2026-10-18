@@ -11,7 +11,11 @@ export interface HeroAction {
   readonly variant: 'primary' | 'secondary';
 }
 
+import { IconName, IconTone } from '@models/icon.model';
+
 export interface HeroProfileRow {
+  readonly icon: IconName;
+  readonly tone: IconTone;
   readonly label: string;
   readonly value: string;
   readonly detail?: string;

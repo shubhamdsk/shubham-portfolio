@@ -8,7 +8,6 @@ import { ExperienceItem, ExperiencePageContent } from '@models/experience.model'
   selector: 'app-experience',
   imports: [RevealOnScroll],
   templateUrl: './experience.html',
-  styleUrl: './experience.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Experience {

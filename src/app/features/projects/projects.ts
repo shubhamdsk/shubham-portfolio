@@ -8,7 +8,6 @@ import { ProjectGroup, ProjectPageContent } from '@models/project.model';
   selector: 'app-projects',
   imports: [RevealOnScroll],
   templateUrl: './projects.html',
-  styleUrl: './projects.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Projects {

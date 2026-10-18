@@ -1,55 +1,65 @@
-<section id="experience" class="experience section" aria-labelledby="experience-title">
-  <div class="app-container">
-    <header class="section__header" appRevealOnScroll>
-      <p class="section__eyebrow">{{ experienceContent().eyebrow }}</p>
+<section id="experience" class="section bg-bg-soft" aria-labelledby="experience-title">
+  <div class="page">
+    <header class="mb-12 md:mb-16" appRevealOnScroll>
+      <p class="eyebrow">{{ experienceContent().eyebrow }}</p>
 
-      <h2 id="experience-title" class="section__title">
+      <h2 id="experience-title" class="section-title">
         {{ experienceContent().title }}
       </h2>
 
-      <p class="section__description">
+      <p class="section-desc">
         {{ experienceContent().description }}
       </p>
     </header>
 
-    <ol class="experience__timeline">
+    <ol class="relative grid gap-6 border-l border-line pl-6 sm:pl-10">
       @for (item of experiences(); track item.company; let index = $index) {
-      <li class="experience__item" [class.experience__item--current]="item.isCurrent" appRevealOnScroll
-        [delay]="index * 100">
-        <div class="experience__meta">
-          <p class="experience__duration">{{ item.duration }}</p>
-          <p class="experience__location">{{ item.location }}</p>
-        </div>
+      <li class="relative" appRevealOnScroll [delay]="index * 100">
+        <span class="absolute top-7 -left-[1.95rem] size-3 rounded-full ring-4 ring-bg-soft sm:-left-[2.95rem]"
+          [class.bg-brand]="item.isCurrent" [class.bg-line-strong]="!item.isCurrent" aria-hidden="true"></span>
 
-        <div class="experience__body">
-          <div class="experience__heading">
-            <h3 class="experience__role">{{ item.role }}</h3>
+        <article class="rounded-2xl border border-line bg-surface p-6 sm:p-8">
+          <div class="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <h3 class="font-display text-xl font-bold tracking-tight text-ink">{{ item.role }}</h3>
 
-            @if (item.isCurrent) {
-            <span class="experience__badge">Current</span>
-            }
+                @if (item.isCurrent) {
+                <span
+                  class="rounded-full bg-emerald-500/12 px-2.5 py-0.5 font-mono text-[0.65rem] font-medium tracking-wider text-emerald-700 uppercase dark:text-emerald-300">Current</span>
+                }
+              </div>
+
+              <p class="mt-1 font-medium text-ink-2">{{ item.company }}</p>
+            </div>
+
+            <div class="text-left sm:text-right">
+              <p class="font-mono text-sm text-ink">{{ item.duration }}</p>
+              <p class="text-sm text-muted">{{ item.location }}</p>
+            </div>
           </div>
 
-          <p class="experience__company">{{ item.company }}</p>
-
-          <p class="experience__summary">{{ item.summary }}</p>
+          <p class="mt-4 max-w-3xl text-muted">{{ item.summary }}</p>
 
           @if (item.responsibilities.length) {
-          <ul class="experience__responsibilities">
+          <ul class="mt-5 grid gap-2">
             @for (responsibility of item.responsibilities; track responsibility) {
-            <li class="experience__responsibility">{{ responsibility }}</li>
+            <li
+              class="relative pl-5 text-sm text-ink-2 before:absolute before:top-[0.6rem] before:left-0 before:h-0.5 before:w-2.5 before:rounded-full before:bg-gradient-to-r before:from-cyan-400 before:to-violet-500">
+              {{ responsibility }}
+            </li>
             }
           </ul>
           }
 
           @if (item.technologies.length) {
-          <ul class="chip-list experience__technologies" [attr.aria-label]="item.company + ' technologies'">
+          <ul class="mt-6 flex flex-wrap gap-1.5" [attr.aria-label]="item.company + ' technologies'">
             @for (technology of item.technologies; track technology) {
             <li class="chip">{{ technology }}</li>
             }
           </ul>
           }
-        </div>
+        </article>
       </li>
       }
     </ol>

@@ -10,8 +10,10 @@ import { Header } from '../header/header';
   selector: 'app-shell',
   imports: [RouterOutlet, Header, Footer],
   templateUrl: './shell.html',
-  styleUrl: './shell.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'grid h-screen w-full grid-rows-[auto_minmax(0,1fr)_auto] overflow-hidden',
+  },
 })
 export class Shell implements AfterViewInit {
   private readonly router = inject(Router);

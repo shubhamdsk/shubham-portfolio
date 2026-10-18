@@ -26,24 +26,32 @@ export const HOME_CONTENT = {
   socialLinks: SOCIAL_LINKS satisfies readonly SocialLink[],
   profileRows: [
     {
+      icon: 'briefcase',
+      tone: 'teal',
       label: 'Now',
       value: 'Hare and Turtle AI Solutions',
       detail: 'Software Engineer',
     },
     {
+      icon: 'history',
+      tone: 'violet',
       label: 'Before',
       value: 'Rabbit and Tortoise Technology Solutions',
       detail: 'Amdocs and Schaeffler platforms',
     },
     {
+      icon: 'globe',
+      tone: 'orange',
       label: 'Studio',
       value: 'Nexora Studio',
       detail: 'Software for small businesses',
     },
     {
+      icon: 'pin',
+      tone: 'cyan',
       label: 'Based',
       value: 'Pune, India',
-      detail: 'IST, UTC+5:30',
+      detail: 'Remote | Pan India | Global',
     },
   ] satisfies readonly HeroProfileRow[],
   techBadges: [
@@ -72,18 +80,26 @@ export const ABOUT_CONTENT = {
   } satisfies AboutContent,
   highlights: [
     {
+      icon: 'monitor',
+      tone: 'cyan',
       title: 'Interfaces that hold up under data',
       description: 'Dashboards, large grids, workflow canvases and multi-step forms in Angular and React.',
     },
     {
+      icon: 'server',
+      tone: 'violet',
       title: 'The whole system',
       description: 'APIs in ASP.NET Core and Next.js on PostgreSQL and Redis, with clean boundaries between them.',
     },
     {
+      icon: 'bolt',
+      tone: 'orange',
       title: 'Live by default',
       description: 'SignalR and Server-Sent Events keep monitoring screens and scoreboards current without a refresh.',
     },
     {
+      icon: 'shield',
+      tone: 'teal',
       title: 'Quality you can ship',
       description: 'Strict TypeScript, tests, CI on every push and accessible markup from the first commit.',
     },
@@ -241,21 +257,29 @@ export const SKILLS_CONTENT = {
   } satisfies SkillPageContent,
   groups: [
     {
+      icon: 'layers',
+      tone: 'cyan',
       title: 'Frontend',
       description: 'Typed, component-driven interfaces that stay fast with real data.',
       skills: ['Angular', 'React', 'Next.js', 'TypeScript', 'RxJS', 'Signals', 'SCSS', 'Tailwind CSS', 'AG Grid', 'Angular Material'],
     },
     {
+      icon: 'server',
+      tone: 'violet',
       title: 'Backend and data',
       description: 'APIs, real-time channels and the databases behind them.',
       skills: ['ASP.NET Core', 'C#', 'Node.js', 'REST APIs', 'SignalR', 'Server-Sent Events', 'PostgreSQL', 'SQL Server', 'Redis', 'Drizzle ORM'],
     },
     {
+      icon: 'cloud',
+      tone: 'orange',
       title: 'Cloud and delivery',
       description: 'Edge-first hosting that is quick to ship and inexpensive to run.',
       skills: ['Cloudflare Workers', 'Vercel', 'Neon', 'Docker', 'GitHub Actions', 'Git'],
     },
     {
+      icon: 'shield',
+      tone: 'teal',
       title: 'Quality and tooling',
       description: 'The checks and tools that keep releases boring.',
       skills: ['Vitest', 'Playwright', 'Accessibility (WCAG)', 'VS Code Extension API', 'Postman', 'Agile / Scrum'],
@@ -274,6 +298,8 @@ export const CONTACT_CONTENT = {
   } satisfies ContactPageContent,
   links: [
     {
+      icon: 'linkedin',
+      tone: 'blue',
       label: 'LinkedIn',
       value: 'shubham-deshmukh1720',
       href: PORTFOLIO_LINKS.linkedin,
@@ -281,6 +307,8 @@ export const CONTACT_CONTENT = {
       isExternal: true,
     },
     {
+      icon: 'github',
+      tone: 'violet',
       label: 'GitHub',
       value: 'shubhamdsk',
       href: PORTFOLIO_LINKS.github,
@@ -288,6 +316,8 @@ export const CONTACT_CONTENT = {
       isExternal: true,
     },
     {
+      icon: 'globe',
+      tone: 'orange',
       label: 'Nexora Studio',
       value: 'Start a project',
       href: PORTFOLIO_LINKS.nexoraStudio,

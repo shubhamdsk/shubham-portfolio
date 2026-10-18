@@ -1,61 +1,68 @@
-<header class="header header--scrolled">
-    <div class="app-container header__container">
-        <a class="header__brand" routerLink="/" aria-label="Go to Shubham Deshmukh portfolio home"
-            (click)="onNavigationClick(navigationItems[0], $event)">
-            <span class="header__brand-mark" aria-hidden="true">SD</span>
+<header class="relative z-30 border-b border-line bg-header backdrop-blur-xl backdrop-saturate-150">
+    <div class="page flex h-16 items-center justify-between gap-4">
+        <a class="inline-flex min-w-0 items-center gap-3" routerLink="/"
+            aria-label="Go to Shubham Deshmukh portfolio home" (click)="onNavigationClick(navigationItems[0], $event)">
+            <span
+                class="bg-brand inline-flex size-9 shrink-0 items-center justify-center rounded-xl font-display text-xs font-bold tracking-wide text-white"
+                aria-hidden="true">SD</span>
 
-            <span class="header__brand-content">
-                <span class="header__brand-name">Shubham Deshmukh</span>
-                <span class="header__brand-role">Software Engineer</span>
+            <span class="grid min-w-0 leading-tight">
+                <span class="truncate font-display text-sm font-bold text-ink">Shubham Deshmukh</span>
+                <span class="hidden text-xs text-muted sm:block">Software Engineer</span>
             </span>
         </a>
 
-        <nav id="primary-navigation" class="header__nav" [class.header__nav--open]="isMenuOpen()"
-            aria-label="Primary navigation">
+        <nav id="primary-navigation" aria-label="Primary navigation"
+            class="absolute inset-x-4 top-[calc(100%+0.5rem)] hidden max-h-[calc(100vh-6rem)] flex-col overflow-y-auto rounded-2xl border border-line bg-surface p-2 shadow-card lg:static lg:flex lg:flex-row lg:items-center lg:gap-1 lg:overflow-visible lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none"
+            [class.flex]="isMenuOpen()" [class.hidden]="!isMenuOpen()">
             @for (item of navigationItems; track item.path) {
-            <a class="header__nav-link" routerLinkActive="header__nav-link--active" ariaCurrentWhenActive="page"
-                [class.header__nav-link--section-active]="isHomeRoute() && activeSectionId() === item.sectionId"
-                [routerLink]="item.path" [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
-                [attr.aria-label]="item.ariaLabel" (click)="onNavigationClick(item, $event)">
+            <a class="rounded-xl px-4 py-2.5 text-sm font-medium text-muted transition hover:text-ink lg:rounded-full lg:px-3 lg:py-1.5"
+                routerLinkActive="nav-link-active" ariaCurrentWhenActive="page"
+                [class.nav-link-active]="isHomeRoute() && activeSectionId() === item.sectionId" [routerLink]="item.path"
+                [routerLinkActiveOptions]="{ exact: item.exact ?? false }" [attr.aria-label]="item.ariaLabel"
+                (click)="onNavigationClick(item, $event)">
                 {{ item.label }}
             </a>
             }
         </nav>
 
-        <div class="header__actions">
-            <button class="header__theme-button" type="button" [attr.aria-label]="themeToggleLabel()"
-                [attr.title]="themeToggleLabel()" (click)="onThemeToggle()">
-                <span class="header__theme-icon header__theme-icon--sun" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                        <circle cx="12" cy="12" r="4"></circle>
-                        <path
-                            d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23 5.46 5.46">
-                        </path>
-                    </svg>
-                </span>
+        <div class="inline-flex shrink-0 items-center gap-2">
+            <button type="button"
+                class="relative inline-flex size-9 items-center justify-center rounded-full border border-line text-ink-2 transition hover:border-line-strong hover:bg-surface-2 hover:text-ink"
+                [attr.aria-label]="themeToggleLabel()" [attr.title]="themeToggleLabel()" (click)="onThemeToggle()">
+                <svg class="absolute size-4 scale-75 -rotate-12 opacity-0 transition duration-300 dark:scale-100 dark:rotate-0 dark:opacity-100"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path
+                        d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23 5.46 5.46">
+                    </path>
+                </svg>
 
-                <span class="header__theme-icon header__theme-icon--moon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                        <path d="M20.2 14.35A8.75 8.75 0 1 1 9.65 3.8a7 7 0 1 0 10.55 10.55Z"></path>
-                    </svg>
-                </span>
+                <svg class="absolute size-4 transition duration-300 dark:scale-75 dark:rotate-12 dark:opacity-0"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M20.2 14.35A8.75 8.75 0 1 1 9.65 3.8a7 7 0 1 0 10.55 10.55Z"></path>
+                </svg>
 
-                <span class="header__sr-only">{{ themeToggleLabel() }}</span>
+                <span class="sr-only">{{ themeToggleLabel() }}</span>
             </button>
 
-            <button class="btn btn--primary header__resume" type="button" [disabled]="isResumeDownloading()"
-                (click)="onResumeDownload()">
+            <button class="btn btn-primary hidden min-h-9 px-4 sm:inline-flex" type="button"
+                [disabled]="isResumeDownloading()" (click)="onResumeDownload()">
                 @if (isResumeDownloading()) {
                 <app-loader size="sm" />
                 }
                 {{ resumeButtonLabel() }}
             </button>
 
-            <button class="header__menu-button" type="button" aria-label="Toggle navigation menu"
-                aria-controls="primary-navigation" [attr.aria-expanded]="isMenuOpen()" (click)="onMenuToggle()">
-                <span class="header__menu-line" aria-hidden="true"></span>
-                <span class="header__menu-line" aria-hidden="true"></span>
-                <span class="header__menu-line" aria-hidden="true"></span>
+            <button type="button"
+                class="inline-flex size-9 flex-col items-center justify-center gap-1 rounded-full border border-line lg:hidden"
+                aria-label="Toggle navigation menu" aria-controls="primary-navigation"
+                [attr.aria-expanded]="isMenuOpen()" (click)="onMenuToggle()">
+                <span class="h-[1.5px] w-4 rounded-full bg-ink" aria-hidden="true"></span>
+                <span class="h-[1.5px] w-4 rounded-full bg-ink" aria-hidden="true"></span>
+                <span class="h-[1.5px] w-4 rounded-full bg-ink" aria-hidden="true"></span>
             </button>
         </div>
     </div>

@@ -1,32 +1,33 @@
-<section id="about" class="about section" aria-labelledby="about-title">
-    <div class="app-container about__container">
-        <div class="about__intro" appRevealOnScroll>
-            <p class="section__eyebrow">{{ aboutContent().eyebrow }}</p>
+<section id="about" class="section" aria-labelledby="about-title">
+    <div class="page grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="lg:sticky lg:top-8" appRevealOnScroll>
+            <p class="eyebrow">{{ aboutContent().eyebrow }}</p>
 
-            <h2 id="about-title" class="section__title">
+            <h2 id="about-title" class="section-title">
                 {{ aboutContent().title }}
             </h2>
 
-            <p class="section__description">
+            <p class="section-desc">
                 {{ aboutContent().description }}
             </p>
 
-            <p class="about__text">
+            <p class="mt-4 max-w-xl text-muted">
                 {{ aboutContent().additionalDescription }}
             </p>
         </div>
 
-        <ol class="about__highlights" aria-label="Strengths">
+        <ul class="grid gap-3" aria-label="Strengths">
             @for (highlight of aboutHighlights(); track highlight.title; let index = $index) {
-            <li class="about__highlight" appRevealOnScroll [delay]="index * 80">
-                <span class="about__highlight-index" aria-hidden="true">0{{ index + 1 }}</span>
+            <li class="flex gap-4 rounded-2xl border border-line bg-surface p-5 transition hover:border-line-strong hover:shadow-card"
+                appRevealOnScroll [delay]="index * 80">
+                <app-icon-badge [icon]="highlight.icon" [tone]="highlight.tone" />
 
                 <div>
-                    <h3 class="about__highlight-title">{{ highlight.title }}</h3>
-                    <p class="about__highlight-description">{{ highlight.description }}</p>
+                    <h3 class="font-semibold tracking-tight text-ink">{{ highlight.title }}</h3>
+                    <p class="mt-1 text-sm text-muted">{{ highlight.description }}</p>
                 </div>
             </li>
             }
-        </ol>
+        </ul>
     </div>
 </section>

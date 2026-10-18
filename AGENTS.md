@@ -1,10 +1,10 @@
 # Angular Portfolio Development Guidelines
 
-You are an expert in TypeScript, Angular, SCSS, accessibility, and scalable frontend architecture.
+You are an expert in TypeScript, Angular, Tailwind CSS, accessibility, and scalable frontend architecture.
 
 Write clean, functional, maintainable, performant, and accessible code following modern Angular and TypeScript best practices.
 
-This project uses Angular 21, standalone components, Signals, SCSS, BEM naming, and lazy-loaded routes.
+This project uses Angular 21, standalone components, Signals, Tailwind CSS v4, and lazy-loaded routes.
 
 ---
 
@@ -50,7 +50,7 @@ This project uses Angular 21, standalone components, Signals, SCSS, BEM naming, 
 - Do NOT use `@HostBinding` and `@HostListener`.
 - Use the `host` object inside `@Component` or `@Directive` metadata instead.
 - Prefer inline templates only for very small components.
-- Use external HTML and SCSS files for normal page/section components.
+- Use external HTML templates for normal page/section components.
 - When using external templates/styles, use paths relative to the component TypeScript file.
 - Keep component state private when possible.
 - Expose only the state required by the template.
@@ -89,38 +89,20 @@ This project uses Angular 21, standalone components, Signals, SCSS, BEM naming, 
 
 ---
 
-## SCSS & Styling Rules
+## Styling Rules (Tailwind CSS v4)
 
-- Use SCSS for all styling.
-- Use BEM naming convention.
-- Use nested SCSS where it improves readability.
-- Keep styles scoped to the component.
-- Avoid global styles unless they are true design tokens, resets, typography, or layout utilities.
-- Do not use Tailwind CSS unless explicitly requested.
-- Prefer semantic class names.
+- Style with Tailwind utility classes in templates. Do not add SCSS or component stylesheets.
+- Theme tokens live in `src/styles.css`: light and dark values are CSS variables on `:root` and `:root[data-theme='dark']`, mapped to Tailwind colors in `@theme inline` (`bg-bg`, `bg-surface`, `text-ink`, `text-muted`, `border-line`, `text-accent`).
+- Use the `dark:` variant for theme-specific tweaks; it follows the `data-theme` attribute set by `ThemeService`.
+- Reuse the shared utilities in `src/styles.css` (`page`, `section`, `eyebrow`, `section-title`, `section-desc`, `chip`, `btn`, `btn-primary`, `btn-secondary`, `text-link`, `text-brand`, `bg-brand`) instead of repeating long class lists.
+- Keep the brand gradient (cyan, blue, violet, orange) for accents only: headline highlight, primary button, thin rules and `app-brand-wave`.
+- Use `app-icon-badge` for icons; add new icon paths to `ICON_PATHS` in `core/constants/icon.constant.ts`.
+- Use `[class.some-class]="condition()"` bindings; Angular class bindings cannot contain Tailwind's `!` modifier.
 
 Example:
 
-```scss
-.header {
-  &__brand {
-    display: flex;
-    align-items: center;
-  }
-
-  &__nav {
-    display: flex;
-    gap: 1rem;
-  }
-
-  &__link {
-    text-decoration: none;
-
-    &--active {
-      font-weight: 600;
-    }
-  }
-}
+```html
+<a class="text-link" [class.nav-link-active]="isActive()" routerLink="/projects">Work</a>
 ```
 ---
 
@@ -194,7 +176,6 @@ Use:
 ```text
 home.ts
 home.html
-home.scss
 ```
 
 Avoid:
@@ -202,7 +183,6 @@ Avoid:
 ```text
 home.component.ts
 home.component.html
-home.component.scss
 ```
 
 For non-component files, use clear suffixes:

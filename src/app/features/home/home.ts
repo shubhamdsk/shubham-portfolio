@@ -12,13 +12,14 @@ import { HeroAction, HeroContent, HeroProfileRow, HeroStat } from '@models/hero.
 import { SocialLink } from '@models/social-link.model';
 import { TechBadge } from '@models/tech-badge.model';
 import { ResumeDownload } from '@services/resume-download-service/resume-download';
+import { BrandWave } from '@shared/components/brand-wave/brand-wave';
+import { IconBadge } from '@shared/components/icon-badge/icon-badge';
 import { AppLoader } from '@shared/components/loader/loader';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, About, Skills, Experience, Projects, Contact, RevealOnScroll, AppLoader],
+  imports: [RouterLink, About, Skills, Experience, Projects, Contact, RevealOnScroll, AppLoader, BrandWave, IconBadge],
   templateUrl: './home.html',
-  styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home {

@@ -1,3 +1,5 @@
+import { IconName, IconTone } from '@models/icon.model';
+
 export interface ContactPageContent {
   readonly eyebrow: string;
   readonly title: string;
@@ -7,6 +9,8 @@ export interface ContactPageContent {
 }
 
 export interface ContactLink {
+  readonly icon: IconName;
+  readonly tone: IconTone;
   readonly label: string;
   readonly value: string;
   readonly href: string;

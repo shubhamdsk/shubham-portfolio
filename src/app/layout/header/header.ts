@@ -10,7 +10,6 @@ import { AppLoader } from '@shared/components/loader/loader';
   selector: 'app-header',
   imports: [RouterLink, RouterLinkActive, AppLoader],
   templateUrl: './header.html',
-  styleUrl: './header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Header {
