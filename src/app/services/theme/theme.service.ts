@@ -68,7 +68,7 @@ export class ThemeService {
   private applyTheme(theme: ThemeMode): void {
     const root = this.document.documentElement;
     const themeColorMeta = this.document.querySelector('meta[name="theme-color"]');
-    const resolvedThemeColor = theme === 'dark' ? '#0b0d12' : '#f6f7fb';
+    const resolvedThemeColor = theme === 'dark' ? '#0a0e14' : '#f4f8f9';
 
     root.dataset['theme'] = theme;
     root.style.colorScheme = theme;

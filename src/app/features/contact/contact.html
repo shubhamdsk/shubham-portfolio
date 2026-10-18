@@ -1,6 +1,7 @@
 <section id="contact" class="section" aria-labelledby="contact-title">
     <div class="page">
-        <div class="card-hover rounded-3xl border border-line" appRevealOnScroll>
+        <div class="card-hover rounded-3xl border border-line bg-linear-to-b from-transparent from-50% to-(--bg-soft)"
+            appRevealOnScroll>
             <div class="bg-brand absolute inset-x-0 top-0 h-px opacity-70" aria-hidden="true"></div>
 
             <div class="relative grid gap-10 p-6 pb-28 sm:p-10 sm:pb-32 lg:grid-cols-[minmax(0,1.3fr)_minmax(18rem,1fr)] lg:items-end lg:p-12 lg:pb-36">
@@ -48,6 +49,12 @@
             </div>
 
             <app-brand-wave class="absolute inset-x-0 bottom-0 h-28 sm:h-32" gradientId="contact-wave" />
+
+            <a class="group absolute right-6 bottom-5 z-10 inline-flex items-center gap-2 font-script text-2xl font-semibold text-ink transition hover:text-accent sm:right-10 sm:bottom-7 sm:text-3xl"
+                [href]="emailHref()" aria-label="Let's build something great: send an email">
+                Let's build something great
+                <span class="font-sans text-xl transition group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+            </a>
         </div>
     </div>
 </section>
