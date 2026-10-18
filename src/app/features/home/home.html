@@ -1,24 +1,29 @@
-<section id="home" class="hero section" aria-labelledby="hero-title">
+<section id="home" class="hero" aria-labelledby="hero-title">
+    <div class="hero__backdrop" aria-hidden="true"></div>
+
     <div class="app-container hero__container">
         <div class="hero__content" appRevealOnScroll [delay]="0">
-            <p class="hero__eyebrow">{{ heroContent.eyebrow }}</p>
+            <p class="hero__status">
+                <span class="hero__status-dot" aria-hidden="true"></span>
+                {{ heroContent.status }}
+            </p>
 
             <h1 id="hero-title" class="hero__title">
                 {{ heroContent.title }}
+                <span class="hero__title-highlight">{{ heroContent.titleHighlight }}</span>
             </h1>
 
             <p class="hero__description">
                 {{ heroContent.description }}
             </p>
 
-            <div class="hero__actions" aria-label="Hero actions">
+            <div class="hero__actions">
                 @for (action of heroActions; track action.label) {
-                @if (action.path) {
                 <a class="btn" [class.btn--primary]="action.variant === 'primary'"
                     [class.btn--secondary]="action.variant === 'secondary'" [routerLink]="action.path">
                     {{ action.label }}
+                    <span aria-hidden="true">&rarr;</span>
                 </a>
-                }
                 }
 
                 <button class="btn btn--secondary" type="button" [disabled]="isResumeDownloading()"
@@ -30,63 +35,69 @@
                 </button>
             </div>
 
-            <div class="hero__socials" aria-label="Social links">
+            <ul class="hero__socials" aria-label="Social links">
                 @for (social of socialLinks; track social.url) {
-                <a class="hero__social-link" [href]="social.url" target="_blank" rel="noopener noreferrer"
-                    [attr.aria-label]="social.ariaLabel">
-                    {{ social.label }}
-                </a>
-                }
-            </div>
-
-            <ul class="hero__badges" aria-label="Core frontend skills">
-                @for (badge of techBadges; track badge.label) {
-                <li class="hero__badge">
-                    {{ badge.label }}
+                <li>
+                    <a class="text-link" [href]="social.url" target="_blank" rel="noopener noreferrer"
+                        [attr.aria-label]="social.ariaLabel">
+                        {{ social.label }}
+                        <span aria-hidden="true">&#8599;</span>
+                    </a>
                 </li>
                 }
             </ul>
         </div>
 
-        <div class="hero__visual" appRevealOnScroll [delay]="120" aria-label="Developer profile highlight">
-            <div class="hero__card">
-                <div class="hero__card-header" aria-hidden="true">
-                    <span class="hero__card-dot"></span>
-                    <span class="hero__card-dot"></span>
-                    <span class="hero__card-dot"></span>
-                </div>
+        <aside class="hero__panel" appRevealOnScroll [delay]="120" aria-label="Profile summary">
+            <div class="hero__panel-header">
+                <span class="hero__avatar" aria-hidden="true">SD</span>
 
-                <div class="hero__code" aria-label="Developer information code card">
-                    @for (line of codeLines; track line.content) {
-                    <p>
-                        @if (line.prefix) {
-                        <span>{{ line.prefix }}</span>
-                        }
-
-                        {{ line.content }}
-                    </p>
-                    }
+                <div class="hero__panel-identity">
+                    <p class="hero__panel-name">Shubham Deshmukh</p>
+                    <p class="hero__panel-role">Software Engineer</p>
                 </div>
             </div>
 
-            <div class="hero__stats" aria-label="Professional highlights">
-                @for (stat of heroStats; track stat.label) {
-                <div class="hero__stat">
-                    <strong>{{ stat.value }}</strong>
-                    <span>{{ stat.label }}</span>
+            <dl class="hero__profile">
+                @for (row of profileRows; track row.label) {
+                <div class="hero__profile-row">
+                    <dt class="hero__profile-label">{{ row.label }}</dt>
+                    <dd class="hero__profile-value">
+                        {{ row.value }}
+                        @if (row.detail) {
+                        <span class="hero__profile-detail">{{ row.detail }}</span>
+                        }
+                    </dd>
                 </div>
                 }
-            </div>
-        </div>
+            </dl>
+
+            <ul class="chip-list hero__badges" aria-label="Primary stack">
+                @for (badge of techBadges; track badge.label) {
+                <li class="chip">{{ badge.label }}</li>
+                }
+            </ul>
+        </aside>
+    </div>
+
+    <div class="app-container">
+        <ul class="hero__stats" aria-label="Professional highlights" appRevealOnScroll [delay]="200">
+            @for (stat of heroStats; track stat.label) {
+            <li class="hero__stat">
+                <strong class="hero__stat-value">{{ stat.value }}</strong>
+                <span class="hero__stat-label">{{ stat.label }}</span>
+            </li>
+            }
+        </ul>
     </div>
 </section>
 
 <app-about />
 
-<app-skills />
-
 <app-experience />
 
 <app-projects />
+
+<app-skills />
 
 <app-contact />

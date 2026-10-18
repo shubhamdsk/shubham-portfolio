@@ -48,22 +48,22 @@ export class Header {
       ariaLabel: 'Go to about section',
     },
     {
-      label: 'Skills',
-      path: '/skills',
-      sectionId: 'skills',
-      ariaLabel: 'Go to skills section',
-    },
-    {
       label: 'Experience',
       path: '/experience',
       sectionId: 'experience',
       ariaLabel: 'Go to experience section',
     },
     {
-      label: 'Projects',
+      label: 'Work',
       path: '/projects',
       sectionId: 'projects',
-      ariaLabel: 'Go to projects section',
+      ariaLabel: 'Go to selected work section',
+    },
+    {
+      label: 'Toolkit',
+      path: '/skills',
+      sectionId: 'skills',
+      ariaLabel: 'Go to toolkit section',
     },
     {
       label: 'Contact',

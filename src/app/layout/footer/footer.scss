@@ -1,17 +1,28 @@
 .footer {
   border-top: 1px solid var(--color-border);
-  background: var(--color-footer-background);
-  backdrop-filter: blur(1rem);
+  background: var(--color-background);
 
   &__container {
     display: flex;
-    min-height: 3rem;
+    min-height: 2.75rem;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    gap: var(--space-md);
   }
 
   &__text {
     color: var(--color-text-muted);
-    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer__text + .footer__text {
+    display: none;
+  }
+
+  .footer__container {
+    justify-content: center;
   }
 }

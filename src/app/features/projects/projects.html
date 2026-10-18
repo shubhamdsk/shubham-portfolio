@@ -1,103 +1,79 @@
 <section id="projects" class="projects section" aria-labelledby="projects-title">
-    <div class="app-container projects__container">
-        <div class="projects__header" appRevealOnScroll>
-            <p class="section__eyebrow">
-                {{ projectsContent().eyebrow }}
-            </p>
+    <div class="app-container">
+        <header class="section__header" appRevealOnScroll>
+            <p class="section__eyebrow">{{ projectsContent().eyebrow }}</p>
 
-            <h1 id="projects-title" class="section__title">
+            <h2 id="projects-title" class="section__title">
                 {{ projectsContent().title }}
-            </h1>
+            </h2>
 
             <p class="section__description">
                 {{ projectsContent().description }}
             </p>
-        </div>
+        </header>
 
-        <div class="projects__grid">
-            @for (project of projects(); track project.title; let index = $index) {
-            <article class="projects__card" appRevealOnScroll [delay]="index * 90">
-                <div class="projects__card-header">
-                    <div class="projects__heading">
-                        <img class="projects__icon" [src]="project.icon" width="48" height="48" alt="" aria-hidden="true">
+        @for (group of projectGroups(); track group.title; let groupIndex = $index) {
+        <div class="projects__group">
+            <div class="projects__group-header" appRevealOnScroll>
+                <h3 class="projects__group-title">{{ group.title }}</h3>
+                <p class="projects__group-note">{{ group.note }}</p>
+            </div>
 
-                        <div>
-                            <p class="projects__category">
-                                {{ project.category }}
-                            </p>
+            @if (groupIndex === 0) {
+            <ul class="projects__featured">
+                @for (project of group.items; track project.title; let index = $index) {
+                <li class="projects__feature" appRevealOnScroll [delay]="index * 80">
+                    <p class="projects__category">{{ project.category }}</p>
+                    <h4 class="projects__title">{{ project.title }}</h4>
+                    <p class="projects__description">{{ project.description }}</p>
 
-                            <h2 class="projects__title">
-                                {{ project.title }}
-                            </h2>
-                        </div>
-                    </div>
+                    <ul class="projects__points">
+                        @for (point of project.points; track point) {
+                        <li class="projects__point">{{ point }}</li>
+                        }
+                    </ul>
 
-                    <p class="projects__description">
-                        {{ project.description }}
-                    </p>
-                </div>
-
-                <div class="projects__content">
-                    <div class="projects__block">
-                        <h3 class="projects__block-title">
-                            Key Responsibilities
-                        </h3>
-
-                        <ul class="projects__responsibilities">
-                            @for (responsibility of project.responsibilities; track responsibility) {
-                            <li class="projects__responsibility">
-                                {{ responsibility }}
-                            </li>
-                            }
-                        </ul>
-                    </div>
-
-                    <div class="projects__block">
-                        <h3 class="projects__block-title">
-                            Highlights
-                        </h3>
-
-                        <ul class="projects__highlights">
-                            @for (highlight of project.highlights; track highlight) {
-                            <li class="projects__highlight">
-                                {{ highlight }}
-                            </li>
-                            }
-                        </ul>
-                    </div>
-
-                    <div class="projects__block">
-                        <h3 class="projects__block-title">
-                            Tech Stack
-                        </h3>
-
-                        <ul class="projects__technologies" [attr.aria-label]="project.title + ' technologies'">
-                            @for (technology of project.technologies; track technology) {
-                            <li class="projects__technology">
-                                {{ technology }}
-                            </li>
-                            }
-                        </ul>
-                    </div>
-                </div>
-
-                @if (project.sourceUrl || project.demoUrl) {
-                <div class="projects__actions">
-                    @if (project.sourceUrl) {
-                    <a class="btn btn--secondary" [href]="project.sourceUrl" target="_blank" rel="noopener noreferrer">
-                        Source Code
-                    </a>
-                    }
-
-                    @if (project.demoUrl) {
-                    <a class="btn btn--primary" [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">
-                        Live Demo
-                    </a>
-                    }
-                </div>
+                    <ul class="chip-list projects__technologies" [attr.aria-label]="project.title + ' technologies'">
+                        @for (technology of project.technologies; track technology) {
+                        <li class="chip">{{ technology }}</li>
+                        }
+                    </ul>
+                </li>
                 }
-            </article>
+            </ul>
+            } @else {
+            <ul class="projects__list">
+                @for (project of group.items; track project.title; let index = $index) {
+                <li class="projects__row" appRevealOnScroll [delay]="index * 60">
+                    <div class="projects__row-heading">
+                        <h4 class="projects__row-title">{{ project.title }}</h4>
+                        <p class="projects__category">{{ project.category }}</p>
+                    </div>
+
+                    <div class="projects__row-body">
+                        <p class="projects__description">{{ project.description }}</p>
+
+                        <ul class="chip-list projects__row-tech" [attr.aria-label]="project.title + ' technologies'">
+                            @for (technology of project.technologies; track technology) {
+                            <li class="chip">{{ technology }}</li>
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="projects__links">
+                        @for (link of project.links; track link.url) {
+                        <a class="text-link" [href]="link.url" target="_blank" rel="noopener noreferrer">
+                            {{ link.label }}
+                            <span aria-hidden="true">&#8599;</span>
+                            <span class="projects__sr-only">for {{ project.title }} (opens in a new tab)</span>
+                        </a>
+                        }
+                    </div>
+                </li>
+                }
+            </ul>
             }
         </div>
+        }
     </div>
 </section>

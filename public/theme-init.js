@@ -12,5 +12,5 @@
 
   document.documentElement.dataset.theme = theme;
   document.documentElement.style.colorScheme = theme;
-  themeColorMeta?.setAttribute('content', theme === 'dark' ? '#0f172a' : '#f4f7fb');
+  themeColorMeta?.setAttribute('content', theme === 'dark' ? '#09090b' : '#fafafa');
 })();

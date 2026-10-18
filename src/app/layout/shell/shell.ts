@@ -89,7 +89,7 @@ export class Shell implements AfterViewInit {
       return;
     }
 
-    const sectionIds = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+    const sectionIds = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
 
     let activeSectionId = 'home';
 

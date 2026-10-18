@@ -1,20 +1,20 @@
 export interface HeroContent {
-  readonly eyebrow: string;
+  readonly status: string;
   readonly title: string;
+  readonly titleHighlight: string;
   readonly description: string;
 }
 
 export interface HeroAction {
   readonly label: string;
-  readonly path?: string;
-  readonly href?: string;
-  readonly download?: string;
+  readonly path: string;
   readonly variant: 'primary' | 'secondary';
 }
 
-export interface HeroCodeLine {
-  readonly prefix?: string;
-  readonly content: string;
+export interface HeroProfileRow {
+  readonly label: string;
+  readonly value: string;
+  readonly detail?: string;
 }
 
 export interface HeroStat {

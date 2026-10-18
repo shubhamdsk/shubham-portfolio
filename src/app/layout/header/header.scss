@@ -6,7 +6,7 @@
   min-height: var(--header-height);
   border-bottom: 1px solid var(--color-border);
   background: var(--color-header-background);
-  backdrop-filter: blur(1rem);
+  backdrop-filter: saturate(1.4) blur(0.75rem);
 
   &__container {
     display: flex;
@@ -31,31 +31,30 @@
 
   &__brand-mark {
     display: inline-flex;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 2.125rem;
+    height: 2.125rem;
     flex: 0 0 auto;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    background:
-      linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(139, 92, 246, 0.18)),
-      var(--color-surface-brand);
-    color: var(--color-primary);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    box-shadow: var(--shadow-glow);
+    border-radius: var(--radius-md);
+    background: var(--color-text-primary);
+    color: var(--color-background);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.02em;
   }
 
   &__brand-content {
     display: grid;
     min-width: 0;
+    line-height: 1.25;
   }
 
   &__brand-name {
     overflow: hidden;
     color: var(--color-text-primary);
-    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -68,14 +67,14 @@
   &__nav {
     display: flex;
     align-items: center;
-    gap: var(--space-xs);
+    gap: var(--space-2xs);
   }
 
   &__nav-link {
     position: relative;
-    padding: var(--space-xs) var(--space-sm);
+    padding: 0.4rem 0.75rem;
     border-radius: var(--radius-full);
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     transition:
@@ -84,18 +83,17 @@
 
     &:hover {
       color: var(--color-text-primary);
-      background: var(--color-surface-hover);
     }
 
     &:focus-visible {
       outline: 2px solid var(--color-primary);
-      outline-offset: 3px;
+      outline-offset: 2px;
     }
 
     &--active,
     &--section-active {
-      color: var(--color-primary);
-      background: var(--color-primary-soft);
+      color: var(--color-text-primary);
+      background: var(--color-surface-hover);
     }
   }
 
@@ -103,39 +101,35 @@
     display: inline-flex;
     flex: 0 0 auto;
     align-items: center;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
   }
 
   &__resume {
-    min-height: 2.4rem;
+    min-height: 2.25rem;
     padding-inline: var(--space-md);
   }
 
   &__theme-button {
     position: relative;
     display: inline-flex;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
     flex: 0 0 auto;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-full);
-    color: var(--color-text-primary);
-    background: var(--color-surface-overlay-strong);
-    box-shadow: var(--shadow-soft);
+    color: var(--color-text-secondary);
+    background: transparent;
     transition:
-      transform var(--transition-base),
       border-color var(--transition-base),
       background-color var(--transition-base),
-      color var(--transition-base),
-      box-shadow var(--transition-base);
+      color var(--transition-base);
 
     &:hover {
       border-color: var(--color-border-strong);
-      background: var(--color-surface-overlay-solid);
-      box-shadow: var(--shadow-glow);
-      transform: translateY(-0.125rem);
+      color: var(--color-text-primary);
+      background: var(--color-surface-hover);
     }
 
     &:focus-visible {
@@ -147,8 +141,8 @@
   &__theme-icon {
     position: absolute;
     display: inline-flex;
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 1rem;
+    height: 1rem;
     align-items: center;
     justify-content: center;
     transition:
@@ -190,14 +184,14 @@
 
   &__menu-button {
     display: none;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
     align-items: center;
     justify-content: center;
     gap: 0.25rem;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background: var(--color-surface-overlay-strong);
+    border-radius: var(--radius-full);
+    background: transparent;
     flex-direction: column;
 
     &:focus-visible {
@@ -207,8 +201,8 @@
   }
 
   &__menu-line {
-    width: 1.1rem;
-    height: 2px;
+    width: 0.95rem;
+    height: 1.5px;
     border-radius: var(--radius-full);
     background: var(--color-text-primary);
   }
@@ -216,13 +210,15 @@
   @include respond-lg {
     &__nav {
       position: absolute;
-      top: calc(100% + var(--space-sm));
+      top: calc(100% + var(--space-xs));
       right: var(--space-md);
       left: var(--space-md);
       display: none;
-      padding: var(--space-md);
+      max-height: calc(100vh - var(--header-height) - 2rem);
+      padding: var(--space-xs);
+      overflow-y: auto;
       border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
+      border-radius: var(--radius-lg);
       background: var(--color-surface-overlay-solid);
       box-shadow: var(--shadow-soft);
       flex-direction: column;
@@ -235,6 +231,7 @@
 
     &__nav-link {
       padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
     }
 
     &__menu-button {
@@ -247,20 +244,7 @@
       gap: var(--space-sm);
     }
 
-    &__brand-mark {
-      width: 2.4rem;
-      height: 2.4rem;
-    }
-
-    &__brand-name {
-      max-width: 9rem;
-      font-size: var(--font-size-sm);
-    }
-
-    &__brand-role {
-      display: none;
-    }
-
+    &__brand-role,
     &__resume {
       display: none;
     }
@@ -275,37 +259,6 @@
     .header__theme-icon--moon {
       opacity: 0;
       transform: scale(0.75) rotate(18deg);
-    }
-  }
-
-  @include respond-lg {
-    &__nav {
-      position: absolute;
-      top: calc(100% + var(--space-sm));
-      right: var(--space-md);
-      left: var(--space-md);
-      display: none;
-      max-height: calc(100vh - var(--header-height) - 2rem);
-      padding: var(--space-md);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      overflow-y: auto;
-      background: var(--color-surface-overlay-solid);
-      box-shadow: var(--shadow-soft);
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    &__nav--open {
-      display: flex;
-    }
-
-    &__nav-link {
-      padding: var(--space-sm) var(--space-md);
-    }
-
-    &__menu-button {
-      display: inline-flex;
     }
   }
 }

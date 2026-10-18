@@ -19,13 +19,19 @@ body {
   overflow: hidden;
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
+  font-feature-settings: 'cv11', 'ss01';
   line-height: var(--line-height-base);
   color: var(--color-text-primary);
   background: var(--color-background);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  color: var(--color-text-primary);
+  background: var(--color-primary-soft);
+}
 
 p,
 h1,
@@ -36,6 +42,16 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 a {
