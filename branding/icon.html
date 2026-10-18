@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>SD icon</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=block">
+  <style>
+    html,
+    body {
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+    }
+
+    /* "full" variant: edge-to-edge tile for apple-touch and maskable icons, which the OS crops itself. */
+    body.full {
+      background: linear-gradient(160deg, #1c202b, #07080b);
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    body.full svg {
+      width: 72%;
+      height: 72%;
+    }
+  </style>
+</head>
+
+<body>
+  <svg viewBox="0 0 64 64" aria-hidden="true">
+    <defs>
+      <linearGradient id="sd-brand" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#22d3ee" />
+        <stop offset="0.4" stop-color="#3b82f6" />
+        <stop offset="0.7" stop-color="#8b5cf6" />
+        <stop offset="1" stop-color="#fb923c" />
+      </linearGradient>
+      <linearGradient id="sd-tile" x1="0" y1="0" x2="0.4" y2="1">
+        <stop offset="0" stop-color="#1c202b" />
+        <stop offset="1" stop-color="#07080b" />
+      </linearGradient>
+    </defs>
+    <rect id="tile" x="2" y="2" width="60" height="60" rx="15" fill="url(#sd-tile)" stroke="url(#sd-brand)"
+      stroke-width="3" />
+    <text x="32" y="42.5" text-anchor="middle" font-family="Montserrat, 'Segoe UI', Arial, sans-serif" font-size="27"
+      font-weight="800" letter-spacing="0.5" fill="url(#sd-brand)">SD</text>
+  </svg>
+
+  <script>
+    if (new URLSearchParams(location.search).get('variant') === 'full') {
+      document.body.classList.add('full');
+      document.getElementById('tile').remove();
+    }
+  </script>
+</body>
+
+</html>
