@@ -4,46 +4,68 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: github-pages
-  cancel-in-progress: false
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
-    name: Build Angular App
-    runs-on: ubuntu-latest
+    name: Test and build
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Run unit tests
+        run: npx ng test --watch=false
+
       - name: Build Angular app
         run: npx ng build --configuration production --base-href /shubham-portfolio/
 
+      # GitHub Pages has no SPA fallback: give every client route its own index.html so deep links return 200,
+      # and serve the app as 404.html for anything else.
+      - name: Add route entry points
+        working-directory: dist/shubham-portfolio/browser
+        run: |
+          for route in about skills experience projects contact; do
+            mkdir -p "$route"
+            cp index.html "$route/index.html"
+          done
+          cp index.html 404.html
+
       - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v4
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist/shubham-portfolio/browser
 
   deploy:
     name: Deploy to GitHub Pages
+    if: github.event_name != 'pull_request'
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+
+    permissions:
+      pages: write
+      id-token: write
 
     environment:
       name: github-pages
@@ -52,4 +74,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
