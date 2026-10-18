@@ -30,7 +30,7 @@ export const HOME_CONTENT = {
       tone: 'teal',
       label: 'Now',
       value: 'Hare and Turtle AI Solutions',
-      detail: 'Software Engineer',
+      detail: 'Software Engineer on the MSIG account',
     },
     {
       icon: 'history',
@@ -76,7 +76,7 @@ export const ABOUT_CONTENT = {
     description:
       'I started as an Angular specialist on data-heavy enterprise UIs: workflow canvases, AG Grid screens and real-time dashboards. Today I work across the stack, pairing Angular and React front ends with ASP.NET Core and Next.js APIs on PostgreSQL.',
     additionalDescription:
-      'At Hare and Turtle AI Solutions I build AI-driven web products. Outside work I run Nexora Studio, where small businesses get billing, catalogue and quotation software that is fast, tested and theirs to run.',
+      'At Hare and Turtle AI Solutions I work on the MSIG client account, building AI-driven web products. Outside work I run Nexora Studio, where small businesses get billing, catalogue and quotation software that is fast, tested and theirs to run.',
   } satisfies AboutContent,
   highlights: [
     {
@@ -118,7 +118,8 @@ export const EXPERIENCE_CONTENT = {
       company: 'Hare and Turtle AI Solutions',
       duration: 'Sep 2026 - Present',
       location: 'Pune, India',
-      summary: 'Building AI-driven web products end to end, from the interface to the services behind it.',
+      summary:
+        'Working on the MSIG client account, building AI-driven web products end to end, from the interface to the services behind it.',
       isCurrent: true,
       responsibilities: [],
       technologies: [],
