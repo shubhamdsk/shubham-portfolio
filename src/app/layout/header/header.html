@@ -16,13 +16,20 @@
             class="absolute inset-x-4 top-[calc(100%+0.5rem)] hidden max-h-[calc(100vh-6rem)] flex-col overflow-y-auto rounded-2xl border border-line bg-surface p-2 shadow-card lg:static lg:flex lg:flex-row lg:items-center lg:gap-1 lg:overflow-visible lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none"
             [class.flex]="isMenuOpen()" [class.hidden]="!isMenuOpen()">
             @for (item of navigationItems; track item.path) {
-            <a class="rounded-xl px-4 py-2.5 text-sm font-medium text-muted transition hover:text-ink lg:rounded-full lg:px-3 lg:py-1.5"
-                routerLinkActive="nav-link-active" ariaCurrentWhenActive="page"
-                [class.nav-link-active]="isHomeRoute() && activeSectionId() === item.sectionId" [routerLink]="item.path"
+            @if (isHomeRoute() && item.sectionId) {
+            <a class="nav-link" [href]="'#' + item.sectionId"
+                [class.nav-link-active]="activeSectionId() === item.sectionId"
+                [attr.aria-current]="activeSectionId() === item.sectionId ? 'location' : null"
+                [attr.aria-label]="item.ariaLabel" (click)="onNavigationClick(item, $event)">
+                {{ item.label }}
+            </a>
+            } @else {
+            <a class="nav-link" routerLinkActive="nav-link-active" ariaCurrentWhenActive="page" [routerLink]="item.path"
                 [routerLinkActiveOptions]="{ exact: item.exact ?? false }" [attr.aria-label]="item.ariaLabel"
                 (click)="onNavigationClick(item, $event)">
                 {{ item.label }}
             </a>
+            }
             }
         </nav>
 
