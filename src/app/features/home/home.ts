@@ -8,17 +8,18 @@ import { Projects } from '@features/projects/projects';
 import { Skills } from '@features/skills/skills';
 import { HOME_CONTENT } from '@core/constants/section-content.constant';
 import { RevealOnScroll } from '@core/directives/reveal-on-scroll/reveal-on-scroll';
-import { HeroAction, HeroContent, HeroProfileRow, HeroStat } from '@models/hero.model';
+import { HeroAction, HeroContent, HeroProfileRow, HeroStat, HeroTechItem } from '@models/hero.model';
 import { SocialLink } from '@models/social-link.model';
 import { TechBadge } from '@models/tech-badge.model';
 import { ResumeDownload } from '@services/resume-download-service/resume-download';
 import { BrandWave } from '@shared/components/brand-wave/brand-wave';
 import { IconBadge } from '@shared/components/icon-badge/icon-badge';
 import { AppLoader } from '@shared/components/loader/loader';
+import { TechOrbit } from '@shared/components/tech-orbit/tech-orbit';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, About, Skills, Experience, Projects, Contact, RevealOnScroll, AppLoader, BrandWave, IconBadge],
+  imports: [RouterLink, About, Skills, Experience, Projects, Contact, RevealOnScroll, AppLoader, BrandWave, IconBadge, TechOrbit],
   templateUrl: './home.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -35,6 +36,7 @@ export class Home {
   protected readonly profileRows: readonly HeroProfileRow[] = HOME_CONTENT.profileRows;
   protected readonly techBadges: readonly TechBadge[] = HOME_CONTENT.techBadges;
   protected readonly heroStats: readonly HeroStat[] = HOME_CONTENT.stats;
+  protected readonly techOrbit: readonly HeroTechItem[] = HOME_CONTENT.techOrbit;
 
   protected async onResumeDownload(): Promise<void> {
     await this.resumeDownloadService.downloadResume();

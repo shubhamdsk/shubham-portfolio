@@ -33,8 +33,8 @@ export class RevealOnScroll implements OnDestroy {
                 this.observer?.disconnect();
             },
             {
-                threshold: 0.16,
-                rootMargin: '0px 0px -80px 0px',
+                threshold: 0,
+                rootMargin: '0px 0px -24px 0px',
             }
         );
 

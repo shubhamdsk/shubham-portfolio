@@ -1,6 +1,6 @@
 <section id="projects" class="section" aria-labelledby="projects-title">
     <div class="page">
-        <header class="mb-12 md:mb-16" appRevealOnScroll>
+        <header class="mb-10 md:mb-12" appRevealOnScroll>
             <p class="eyebrow">{{ projectsContent().eyebrow }}</p>
 
             <h2 id="projects-title" class="section-title">
@@ -13,7 +13,7 @@
         </header>
 
         @for (group of projectGroups(); track group.title; let groupIndex = $index) {
-        <div [class.mt-16]="groupIndex > 0">
+        <div [class.mt-12]="groupIndex > 0">
             <div class="mb-5 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1" appRevealOnScroll>
                 <h3 class="font-display text-lg font-bold tracking-tight text-ink">{{ group.title }}</h3>
                 <p class="font-mono text-xs text-muted">{{ group.note }}</p>

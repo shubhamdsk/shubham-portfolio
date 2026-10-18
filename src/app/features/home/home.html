@@ -1,4 +1,4 @@
-<section id="home" class="relative overflow-hidden pt-20 md:pt-28" aria-labelledby="hero-title">
+<section id="home" class="relative overflow-hidden pt-14 md:pt-20" aria-labelledby="hero-title">
     <div class="pointer-events-none absolute inset-0 [background-image:linear-gradient(var(--grid-line)_1px,transparent_1px),linear-gradient(90deg,var(--grid-line)_1px,transparent_1px)] [background-size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_30%,transparent_100%)]"
         aria-hidden="true"></div>
     <div class="pointer-events-none absolute -top-40 left-[10%] size-[28rem] rounded-full bg-cyan-400/15 blur-3xl dark:bg-cyan-400/10"
@@ -9,7 +9,7 @@
     <div class="page relative grid items-center gap-14 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)]">
         <div appRevealOnScroll [delay]="0">
             <p
-                class="mb-8 inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 py-1.5 pr-3.5 pl-3 text-xs font-medium text-ink-2 backdrop-blur sm:text-sm">
+                class="mb-8 inline-flex items-center gap-2 rounded-full border border-line bg-surface py-1.5 pr-3.5 pl-3 text-xs font-medium text-ink-2 sm:text-sm">
                 <span class="relative size-2 rounded-full bg-emerald-500" aria-hidden="true">
                     <span class="absolute inset-0 animate-[pulse-ring_2.4s_ease-out_infinite] rounded-full bg-emerald-500"></span>
                 </span>
@@ -108,7 +108,7 @@
     </div>
 
     <div class="page relative">
-        <ul class="mt-16 grid border-t border-line md:grid-cols-3" aria-label="Professional highlights"
+        <ul class="mt-12 grid border-t border-line md:grid-cols-3" aria-label="Professional highlights"
             appRevealOnScroll [delay]="200">
             @for (stat of heroStats; track stat.label) {
             <li
@@ -118,9 +118,12 @@
             </li>
             }
         </ul>
+
+        <app-tech-orbit class="mt-2" [items]="techOrbit" label="Tech stack I ship with" appRevealOnScroll
+            [delay]="260" />
     </div>
 
-    <app-brand-wave class="relative mt-6 h-24 opacity-80 md:h-32" gradientId="hero-wave" />
+    <app-brand-wave class="relative h-24 opacity-80 md:h-32" gradientId="hero-wave" />
 </section>
 
 <app-about />

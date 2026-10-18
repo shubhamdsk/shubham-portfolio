@@ -107,7 +107,7 @@
 }
 
 @utility section {
-  @apply border-t border-line py-20 md:py-28;
+  @apply border-t border-line py-16 md:py-20;
 }
 
 @utility text-brand {
@@ -201,8 +201,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background-color: color-mix(in srgb, var(--surface) 84%, transparent);
-  backdrop-filter: blur(14px) saturate(140%);
+  background-color: var(--surface);
   box-shadow: var(--shadow);
   transition-property: opacity, transform, box-shadow, border-color;
   transition-duration: 600ms, 600ms, 450ms, 450ms;
@@ -241,6 +240,146 @@
 
 .card-hover:focus-within {
   border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+}
+
+/* Faces counter-rotate against the ring (and its tilt) so logos always face the viewer. */
+.tech-orbit {
+  --orbit-radius: 8.5rem;
+  --orbit-tilt: -22deg;
+  --orbit-duration: 40s;
+  --chip-size: 3.25rem;
+  --core-size: 4.25rem;
+}
+
+@media (min-width: 640px) {
+  .tech-orbit {
+    --orbit-radius: 13rem;
+    --chip-size: 5.25rem;
+    --core-size: 7.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tech-orbit {
+    --orbit-radius: 21rem;
+  }
+}
+
+.tech-orbit__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: calc(var(--chip-size) * 1.6 + var(--orbit-radius) * 0.9);
+  perspective: 1100px;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.tech-orbit__ring {
+  position: relative;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--orbit-tilt)) rotateY(0deg);
+  animation: orbit-spin var(--orbit-duration) linear infinite;
+}
+
+.tech-orbit__slot {
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: rotateY(var(--angle, 0deg)) translateZ(var(--orbit-radius));
+}
+
+.tech-orbit__slot--center {
+  transform: none;
+}
+
+.tech-orbit__face {
+  position: absolute;
+  left: calc(var(--chip-size) / -2);
+  top: calc(var(--chip-size) / -2);
+  width: var(--chip-size);
+  height: var(--chip-size);
+  transform: rotateY(calc(var(--angle, 0deg) * -1)) rotateX(calc(var(--orbit-tilt) * -1));
+  animation: orbit-face var(--orbit-duration) linear infinite;
+}
+
+.tech-orbit__chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.tech-orbit__chip img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+
+@media (min-width: 640px) {
+  .tech-orbit__chip img {
+    width: 44%;
+    height: 44%;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .tech-orbit__chip span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+.tech-orbit__core {
+  --chip-size: var(--core-size);
+  display: grid;
+  place-items: center;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background:
+    radial-gradient(circle at 35% 30%, #1c202b, #07080b 70%) padding-box,
+    linear-gradient(135deg, #22d3ee, #3b82f6 40%, #8b5cf6 70%, #fb923c) border-box;
+  box-shadow:
+    0 0 60px -10px rgba(59, 130, 246, 0.55),
+    0 0 120px -30px rgba(139, 92, 246, 0.6);
+}
+
+.tech-orbit:hover .tech-orbit__ring,
+.tech-orbit:hover .tech-orbit__face {
+  animation-play-state: paused;
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotateX(var(--orbit-tilt)) rotateY(-360deg);
+  }
+}
+
+@keyframes orbit-face {
+  from {
+    transform: rotateY(calc(var(--angle, 0deg) * -1)) rotateX(calc(var(--orbit-tilt) * -1));
+  }
+
+  to {
+    transform: rotateY(calc(var(--angle, 0deg) * -1 + 360deg)) rotateX(calc(var(--orbit-tilt) * -1));
+  }
 }
 
 @keyframes pulse-ring {

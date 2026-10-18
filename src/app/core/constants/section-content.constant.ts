@@ -2,7 +2,7 @@ import { PORTFOLIO_LINKS, SOCIAL_LINKS } from '@core/constants/portfolio.constan
 import { AboutContent, AboutHighlight } from '@models/about.model';
 import { ContactLink, ContactPageContent } from '@models/contact.model';
 import { ExperienceItem, ExperiencePageContent } from '@models/experience.model';
-import { HeroAction, HeroContent, HeroProfileRow, HeroStat } from '@models/hero.model';
+import { HeroAction, HeroContent, HeroProfileRow, HeroStat, HeroTechItem } from '@models/hero.model';
 import { ProjectGroup, ProjectPageContent } from '@models/project.model';
 import { SkillGroup, SkillPageContent } from '@models/skill.model';
 import { SocialLink } from '@models/social-link.model';
@@ -30,7 +30,7 @@ export const HOME_CONTENT = {
       tone: 'teal',
       label: 'Now',
       value: 'Hare and Turtle AI Solutions',
-      detail: 'Software Engineer on the MSIG account',
+      detail: 'Polyglot developer for MSIG USA',
     },
     {
       icon: 'history',
@@ -67,6 +67,20 @@ export const HOME_CONTENT = {
     { value: '3', label: 'Enterprise platforms delivered' },
     { value: '2', label: 'Client products shipped independently' },
   ] satisfies readonly HeroStat[],
+  techOrbit: [
+    { name: 'Angular', icon: 'assets/tech/angular.svg' },
+    { name: 'React', icon: 'assets/tech/react.svg' },
+    { name: 'Next.js', icon: 'assets/tech/nextjs.svg' },
+    { name: 'TypeScript', icon: 'assets/tech/typescript.svg' },
+    { name: 'Tailwind', icon: 'assets/tech/tailwind.svg' },
+    { name: '.NET', icon: 'assets/tech/dotnet.svg' },
+    { name: 'C#', icon: 'assets/tech/csharp.svg' },
+    { name: 'Node.js', icon: 'assets/tech/nodejs.svg' },
+    { name: 'PostgreSQL', icon: 'assets/tech/postgresql.svg' },
+    { name: 'Redis', icon: 'assets/tech/redis.svg' },
+    { name: 'Docker', icon: 'assets/tech/docker.svg' },
+    { name: 'Cloudflare', icon: 'assets/tech/cloudflare.svg' },
+  ] satisfies readonly HeroTechItem[],
 } as const;
 
 export const ABOUT_CONTENT = {
@@ -76,7 +90,7 @@ export const ABOUT_CONTENT = {
     description:
       'I started as an Angular specialist on data-heavy enterprise UIs: workflow canvases, AG Grid screens and real-time dashboards. Today I work across the stack, pairing Angular and React front ends with ASP.NET Core and Next.js APIs on PostgreSQL.',
     additionalDescription:
-      'At Hare and Turtle AI Solutions I work on the MSIG client account, building AI-driven web products. Outside work I run Nexora Studio, where small businesses get billing, catalogue and quotation software that is fast, tested and theirs to run.',
+      'At Hare and Turtle AI Solutions I work as a polyglot developer for MSIG USA, a large insurance group, building software across its lines of business. Outside work I run Nexora Studio, where small businesses get billing, catalogue and quotation software that is fast, tested and theirs to run.',
   } satisfies AboutContent,
   highlights: [
     {
@@ -110,7 +124,7 @@ export const EXPERIENCE_CONTENT = {
   content: {
     eyebrow: 'Experience',
     title: 'Two years of software in front of real users.',
-    description: 'Enterprise teams first, then AI products. Every role has meant owning features end to end.',
+    description: 'Enterprise platforms first, now insurance software at scale. Every role has meant owning features end to end.',
   } satisfies ExperiencePageContent,
   items: [
     {
@@ -119,7 +133,7 @@ export const EXPERIENCE_CONTENT = {
       duration: 'Sep 2026 - Present',
       location: 'Pune, India',
       summary:
-        'Working on the MSIG client account, building AI-driven web products end to end, from the interface to the services behind it.',
+        'Polyglot developer for MSIG USA, a large insurance group, building software across multiple lines of business (LOBs), from the interface to the services behind it.',
       isCurrent: true,
       responsibilities: [],
       technologies: [],

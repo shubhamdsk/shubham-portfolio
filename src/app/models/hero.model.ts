@@ -21,6 +21,11 @@ export interface HeroProfileRow {
   readonly detail?: string;
 }
 
+export interface HeroTechItem {
+  readonly name: string;
+  readonly icon: string;
+}
+
 export interface HeroStat {
   readonly value: string;
   readonly label: string;
