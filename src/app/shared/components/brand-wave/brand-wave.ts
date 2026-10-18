@@ -7,13 +7,13 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
       preserveAspectRatio="none" focusable="false">
       <defs>
         <linearGradient [attr.id]="gradientId()" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#22d3ee" />
-          <stop offset="0.18" stop-color="#3b82f6" />
-          <stop offset="0.32" stop-color="#8b5cf6" />
-          <stop offset="0.5" stop-color="#fb923c" />
-          <stop offset="0.68" stop-color="#3b82f6" />
-          <stop offset="0.84" stop-color="#8b5cf6" />
-          <stop offset="1" stop-color="#22d3ee" />
+          <stop offset="0" style="stop-color: var(--wave-a)" />
+          <stop offset="0.18" style="stop-color: var(--wave-b)" />
+          <stop offset="0.32" style="stop-color: var(--wave-c)" />
+          <stop offset="0.5" style="stop-color: var(--wave-d)" />
+          <stop offset="0.68" style="stop-color: var(--wave-b)" />
+          <stop offset="0.84" style="stop-color: var(--wave-c)" />
+          <stop offset="1" style="stop-color: var(--wave-a)" />
         </linearGradient>
       </defs>
 

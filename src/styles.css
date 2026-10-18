@@ -5,31 +5,38 @@
 :root {
   color-scheme: light;
 
-  --bg: #f6f7fb;
-  --bg-soft: #eef1f7;
+  --bg: #f4f8f9;
+  --bg-soft: #eaf4f4;
   --surface: #ffffff;
-  --surface-2: #f2f4f9;
+  --surface-2: #eff6f6;
   --ink: #0f1b3d;
-  --ink-2: #33415c;
-  --muted: #5b6785;
-  --line: rgba(15, 27, 61, 0.09);
-  --line-strong: rgba(15, 27, 61, 0.18);
-  --accent: #4f46e5;
-  --header: rgba(246, 247, 251, 0.8);
-  --grid-line: rgba(15, 27, 61, 0.045);
-  --shadow: 0 1px 2px rgba(15, 27, 61, 0.05), 0 12px 32px rgba(15, 27, 61, 0.08);
-  --shadow-lift: 0 2px 6px rgba(15, 27, 61, 0.06), 0 28px 56px -12px rgba(15, 27, 61, 0.22);
-  --spot-1: rgba(79, 70, 229, 0.08);
-  --spot-2: rgba(34, 211, 238, 0.05);
+  --ink-2: #2f3e5c;
+  --muted: #586880;
+  --line: rgba(15, 45, 61, 0.09);
+  --line-strong: rgba(15, 45, 61, 0.18);
+  --accent: #0f766e;
+  --header: rgba(244, 248, 249, 0.82);
+  --grid-line: rgba(15, 70, 80, 0.05);
+  --shadow: 0 1px 2px rgba(15, 45, 61, 0.05), 0 12px 32px rgba(15, 60, 70, 0.08);
+  --shadow-lift: 0 2px 6px rgba(15, 45, 61, 0.06), 0 28px 56px -12px rgba(15, 60, 70, 0.2);
+  --spot-1: rgba(20, 184, 166, 0.1);
+  --spot-2: rgba(34, 211, 238, 0.06);
+  --glow-1: rgba(94, 234, 212, 0.28);
+  --glow-2: rgba(165, 243, 252, 0.4);
+  --wave-a: #14b8a6;
+  --wave-b: #2dd4bf;
+  --wave-c: #22d3ee;
+  --wave-d: #5eead4;
+  --selection: rgba(20, 184, 166, 0.22);
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  --bg: #0b0d12;
-  --bg-soft: #0f1218;
-  --surface: #12151d;
-  --surface-2: #191d27;
+  --bg: #0a0e14;
+  --bg-soft: #0d121a;
+  --surface: #111720;
+  --surface-2: #18202b;
   --ink: #f5f7fb;
   --ink-2: #cdd3e1;
   --muted: #8f99ae;
@@ -42,12 +49,20 @@
   --shadow-lift: 0 2px 6px rgba(0, 0, 0, 0.5), 0 32px 64px -12px rgba(0, 0, 0, 0.7);
   --spot-1: rgba(103, 232, 249, 0.09);
   --spot-2: rgba(139, 92, 246, 0.06);
+  --glow-1: rgba(34, 211, 238, 0.1);
+  --glow-2: rgba(139, 92, 246, 0.12);
+  --wave-a: #22d3ee;
+  --wave-b: #3b82f6;
+  --wave-c: #8b5cf6;
+  --wave-d: #fb923c;
+  --selection: rgba(139, 92, 246, 0.3);
 }
 
 @theme inline {
   --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
   --font-display: 'Montserrat', 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+  --font-script: 'Dancing Script', 'Segoe Script', cursive;
 
   --color-bg: var(--bg);
   --color-bg-soft: var(--bg-soft);
@@ -83,7 +98,7 @@
   }
 
   ::selection {
-    background: rgba(139, 92, 246, 0.22);
+    background: var(--selection);
   }
 
   h1,
