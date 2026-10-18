@@ -47,6 +47,11 @@ export class Shell implements AfterViewInit {
       });
 
     this.updateActiveSection(mainContentElement);
+
+    fromEvent<PointerEvent>(mainContentElement, 'pointermove').pipe(
+      filter((event) => event.pointerType === 'mouse'),
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe((event) => this.updateCardSpotlight(event));
   }
 
   protected onSectionNavigation(sectionId: string): void {
@@ -84,6 +89,18 @@ export class Shell implements AfterViewInit {
       left: 0,
       behavior: 'smooth',
     });
+  }
+
+  private updateCardSpotlight(event: PointerEvent): void {
+    const card = (event.target as Element | null)?.closest<HTMLElement>('.card-hover');
+
+    if (!card) {
+      return;
+    }
+
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
+    card.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
   }
 
   private updateActiveSection(mainContentElement: HTMLElement): void {

@@ -18,7 +18,7 @@
 
         <ul class="grid gap-3" aria-label="Strengths">
             @for (highlight of aboutHighlights(); track highlight.title; let index = $index) {
-            <li class="flex gap-4 rounded-2xl border border-line bg-surface p-5 transition hover:border-line-strong hover:shadow-card"
+            <li class="card-hover flex gap-4 rounded-2xl border border-line p-5"
                 appRevealOnScroll [delay]="index * 80">
                 <app-icon-badge [icon]="highlight.icon" [tone]="highlight.tone" />
 
