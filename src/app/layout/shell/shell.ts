@@ -10,8 +10,10 @@ import { Header } from '../header/header';
   selector: 'app-shell',
   imports: [RouterOutlet, Header, Footer],
   templateUrl: './shell.html',
-  styleUrl: './shell.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'grid h-screen w-full grid-rows-[auto_minmax(0,1fr)_auto] overflow-hidden',
+  },
 })
 export class Shell implements AfterViewInit {
   private readonly router = inject(Router);
@@ -45,6 +47,11 @@ export class Shell implements AfterViewInit {
       });
 
     this.updateActiveSection(mainContentElement);
+
+    fromEvent<PointerEvent>(mainContentElement, 'pointermove').pipe(
+      filter((event) => event.pointerType === 'mouse'),
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe((event) => this.updateCardSpotlight(event));
   }
 
   protected onSectionNavigation(sectionId: string): void {
@@ -84,12 +91,24 @@ export class Shell implements AfterViewInit {
     });
   }
 
+  private updateCardSpotlight(event: PointerEvent): void {
+    const card = (event.target as Element | null)?.closest<HTMLElement>('.card-hover');
+
+    if (!card) {
+      return;
+    }
+
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
+    card.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
+  }
+
   private updateActiveSection(mainContentElement: HTMLElement): void {
     if (this.router.url !== '/') {
       return;
     }
 
-    const sectionIds = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+    const sectionIds = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
 
     let activeSectionId = 'home';
 

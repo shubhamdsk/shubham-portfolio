@@ -1,20 +1,29 @@
 export interface HeroContent {
-  readonly eyebrow: string;
+  readonly status: string;
   readonly title: string;
+  readonly titleHighlight: string;
   readonly description: string;
 }
 
 export interface HeroAction {
   readonly label: string;
-  readonly path?: string;
-  readonly href?: string;
-  readonly download?: string;
+  readonly path: string;
   readonly variant: 'primary' | 'secondary';
 }
 
-export interface HeroCodeLine {
-  readonly prefix?: string;
-  readonly content: string;
+import { IconName, IconTone } from '@models/icon.model';
+
+export interface HeroProfileRow {
+  readonly icon: IconName;
+  readonly tone: IconTone;
+  readonly label: string;
+  readonly value: string;
+  readonly detail?: string;
+}
+
+export interface HeroTechItem {
+  readonly name: string;
+  readonly icon: string;
 }
 
 export interface HeroStat {

@@ -1,3 +1,5 @@
+import { IconName, IconTone } from '@models/icon.model';
+
 export interface SkillPageContent {
   readonly eyebrow: string;
   readonly title: string;
@@ -5,13 +7,9 @@ export interface SkillPageContent {
 }
 
 export interface SkillGroup {
+  readonly icon: IconName;
+  readonly tone: IconTone;
   readonly title: string;
   readonly description: string;
-  readonly icon: string;
   readonly skills: readonly string[];
-}
-
-export interface SkillHighlight {
-  readonly title: string;
-  readonly description: string;
 }

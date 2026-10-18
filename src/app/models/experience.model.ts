@@ -10,12 +10,7 @@ export interface ExperienceItem {
   readonly duration: string;
   readonly location: string;
   readonly summary: string;
+  readonly isCurrent: boolean;
   readonly responsibilities: readonly string[];
   readonly technologies: readonly string[];
-}
-
-export interface ExperienceHighlight {
-  readonly value: string;
-  readonly label: string;
-  readonly description: string;
 }

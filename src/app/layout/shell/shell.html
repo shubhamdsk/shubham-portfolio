@@ -1,12 +1,15 @@
 <app-header #appHeader (sectionNavigation)="onSectionNavigation($event)" />
 
-<main #mainContent class="main-content">
+<main #mainContent
+  class="min-h-0 overflow-x-hidden overflow-y-auto scroll-smooth [scrollbar-color:var(--line-strong)_transparent] [scrollbar-gutter:stable] [scrollbar-width:thin]">
   <router-outlet />
 </main>
 
-<button class="scroll-top" type="button" aria-label="Scroll to top" [class.scroll-top--visible]="isScrollTopVisible()"
-  (click)="onScrollTop()">
-  ↑
+<button type="button" aria-label="Scroll to top"
+  class="fixed right-4 bottom-16 z-20 inline-flex size-11 translate-y-2 items-center justify-center rounded-full border border-line-strong bg-surface text-ink opacity-0 shadow-card transition hover:bg-surface-2 sm:right-6"
+  [class.pointer-events-none]="!isScrollTopVisible()" [class.opacity-100]="isScrollTopVisible()"
+  [class.translate-y-0]="isScrollTopVisible()" (click)="onScrollTop()">
+  &uarr;
 </button>
 
 <app-footer />

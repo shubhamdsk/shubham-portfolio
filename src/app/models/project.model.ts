@@ -4,15 +4,22 @@ export interface ProjectPageContent {
   readonly description: string;
 }
 
+export interface ProjectLink {
+  readonly label: string;
+  readonly url: string;
+}
+
 export interface ProjectItem {
   readonly title: string;
   readonly category: string;
   readonly description: string;
-  readonly icon: string;
-  readonly responsibilities: readonly string[];
+  readonly points: readonly string[];
   readonly technologies: readonly string[];
-  readonly highlights: readonly string[];
-  readonly routeLabel?: string;
-  readonly sourceUrl?: string;
-  readonly demoUrl?: string;
+  readonly links: readonly ProjectLink[];
+}
+
+export interface ProjectGroup {
+  readonly title: string;
+  readonly note: string;
+  readonly items: readonly ProjectItem[];
 }

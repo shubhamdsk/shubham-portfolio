@@ -9,7 +9,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        title: 'Shubham Deshmukh | Frontend Developer',
+        title: 'Shubham Deshmukh | Software Engineer',
         loadComponent: () =>
           import('./features/home/home').then((m) => m.Home),
       },
@@ -21,7 +21,7 @@ export const routes: Routes = [
       },
       {
         path: 'skills',
-        title: 'Skills | Shubham Deshmukh',
+        title: 'Toolkit | Shubham Deshmukh',
         loadComponent: () =>
           import('./features/skills/skills').then((m) => m.Skills),
       },
@@ -33,7 +33,7 @@ export const routes: Routes = [
       },
       {
         path: 'projects',
-        title: 'Projects | Shubham Deshmukh',
+        title: 'Selected work | Shubham Deshmukh',
         loadComponent: () =>
           import('./features/projects/projects').then((m) => m.Projects),
       },

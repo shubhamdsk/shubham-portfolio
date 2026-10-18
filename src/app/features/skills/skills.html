@@ -1,57 +1,37 @@
-<section id="skills" class="skills section" aria-labelledby="skills-title">
-  <div class="app-container skills__container">
-    <div class="skills__header" appRevealOnScroll>
-      <p class="section__eyebrow">
-        {{ skillsContent().eyebrow }}
-      </p>
+<section id="skills" class="section bg-bg-soft" aria-labelledby="skills-title">
+  <div class="page">
+    <header class="mb-10 md:mb-12" appRevealOnScroll>
+      <p class="eyebrow">{{ skillsContent().eyebrow }}</p>
 
-      <h1 id="skills-title" class="section__title">
+      <h2 id="skills-title" class="section-title">
         {{ skillsContent().title }}
-      </h1>
+      </h2>
 
-      <p class="section__description">
+      <p class="section-desc">
         {{ skillsContent().description }}
       </p>
-    </div>
+    </header>
 
-    <div class="skills__highlights" aria-label="Skill highlights">
-      @for (highlight of skillHighlights(); track highlight.title; let index = $index) {
-        <article class="skills__highlight" appRevealOnScroll [delay]="index * 90">
-          <h2 class="skills__highlight-title">
-            {{ highlight.title }}
-          </h2>
-
-          <p class="skills__highlight-description">
-            {{ highlight.description }}
-          </p>
-        </article>
-      }
-    </div>
-
-    <div class="skills__grid">
+    <ul class="border-t border-line">
       @for (group of skillGroups(); track group.title; let index = $index) {
-        <article class="skills__card" appRevealOnScroll [delay]="index * 90">
-          <div class="skills__card-header">
-            <img class="skills__icon" [src]="group.icon" width="48" height="48" alt="" aria-hidden="true">
+      <li class="grid items-start gap-4 border-b border-line py-6 md:grid-cols-[16rem_minmax(0,1fr)] md:gap-8"
+        appRevealOnScroll [delay]="index * 60">
+        <div class="flex items-start gap-4">
+          <app-icon-badge [icon]="group.icon" [tone]="group.tone" size="sm" />
 
-            <h2 class="skills__card-title">
-              {{ group.title }}
-            </h2>
+          <div>
+            <h3 class="font-display font-bold tracking-tight text-ink">{{ group.title }}</h3>
+            <p class="mt-1 text-sm text-muted">{{ group.description }}</p>
           </div>
+        </div>
 
-          <p class="skills__card-description">
-            {{ group.description }}
-          </p>
-
-          <ul class="skills__list" [attr.aria-label]="group.title">
-            @for (skill of group.skills; track skill) {
-              <li class="skills__item">
-                {{ skill }}
-              </li>
-            }
-          </ul>
-        </article>
+        <ul class="flex flex-wrap gap-1.5 md:pt-1" [attr.aria-label]="group.title">
+          @for (skill of group.skills; track skill) {
+          <li class="chip">{{ skill }}</li>
+          }
+        </ul>
+      </li>
       }
-    </div>
+    </ul>
   </div>
 </section>

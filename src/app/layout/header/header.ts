@@ -1,4 +1,6 @@
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { filter, map } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ChangeDetectionStrategy, Component, computed, inject, output, signal } from '@angular/core';
 
 import { NavigationItem } from '@models/navigation.model';
@@ -10,7 +12,6 @@ import { AppLoader } from '@shared/components/loader/loader';
   selector: 'app-header',
   imports: [RouterLink, RouterLinkActive, AppLoader],
   templateUrl: './header.html',
-  styleUrl: './header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Header {
@@ -25,7 +26,15 @@ export class Header {
   protected readonly isResumeDownloading = this.resumeDownloadService.isDownloading;
   protected readonly isDarkTheme = this.themeService.isDarkTheme;
 
-  protected readonly isHomeRoute = computed(() => this.router.url === '/');
+  private readonly currentUrl = toSignal(
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      map((event) => event.urlAfterRedirects)
+    ),
+    { initialValue: this.router.url }
+  );
+
+  protected readonly isHomeRoute = computed(() => this.currentUrl().split(/[?#]/)[0] === '/');
   protected readonly resumeButtonLabel = computed(() =>
     this.isResumeDownloading() ? 'Downloading...' : 'Resume'
   );
@@ -48,22 +57,22 @@ export class Header {
       ariaLabel: 'Go to about section',
     },
     {
-      label: 'Skills',
-      path: '/skills',
-      sectionId: 'skills',
-      ariaLabel: 'Go to skills section',
-    },
-    {
       label: 'Experience',
       path: '/experience',
       sectionId: 'experience',
       ariaLabel: 'Go to experience section',
     },
     {
-      label: 'Projects',
+      label: 'Work',
       path: '/projects',
       sectionId: 'projects',
-      ariaLabel: 'Go to projects section',
+      ariaLabel: 'Go to selected work section',
+    },
+    {
+      label: 'Toolkit',
+      path: '/skills',
+      sectionId: 'skills',
+      ariaLabel: 'Go to toolkit section',
     },
     {
       label: 'Contact',
